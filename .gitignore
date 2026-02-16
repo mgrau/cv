@@ -1,0 +1,34 @@
+# Build output
+_build/
+
+# Generated TeX sections (rebuilt from sections/*.md)
+sections/tex/
+
+# Generated data/stats (rebuilt by update_metrics.py)
+data/stats.*
+data/gs_cache.json
+
+# LaTeX artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Quarto
+/.quarto/
+**/*.quarto_ipynb
+
+# OS
+.DS_Store

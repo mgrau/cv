@@ -1,0 +1,40 @@
+%%%%%%%%%%%%%%%
+% CV Preamble — personal/document-specific settings
+% Matt Grau - Old Dominion University
+%%%%%%%%%%%%%%%
+
+\usepackage{settings}
+
+% Bibliography sources
+\addbibresource[label=published]{publications/published.bib}
+\addbibresource[label=submitted]{publications/submitted.bib}
+
+% Bold author name in publications
+\mynames{
+  Grau/Matt,
+  Grau/M.,
+  Grau/M,
+  Grau/M.\bibnamedelimi C.
+}
+
+% Header with contact info
+\leftheader{%
+  {\LARGE\bfseries\sffamily Matt Grau}
+
+  \bgroup\def\arraystretch{1}
+  \begin{tabularx}{0.9\linewidth}{@{}l l X@{}}
+  \makefield{\faPhone}{(757) 683-5827} &
+  \makefield{\faOrcid}{\href{https://orcid.org/0000-0002-2684-6923}{\texttt{0000-0002-2684-6923}}} &
+  \makefield{\faMapMarker}{2100K Physical Science Building} \\
+  \makefield{\faEnvelope[regular]}{\href{mailto:mgrau@odu.edu}{\texttt{mgrau@odu.edu}}} &
+  \makefield{\faGoogle}{\href{https://scholar.google.com/citations?user=lnh9kdIAAAAJ}{\texttt{lnh9kdIAAAAJ}}} &
+  \makefield{}{Physics Department} \\
+  \makefield{\faGlobe}{\href{https://www.odu.edu/directory/matt-grau}{http://graulab.org/}} &
+  \makefield{\faGithub}{\href{https://github.com/mgrau}{\texttt{mgrau}}} &
+  \makefield{}{Old Dominion University} \\
+  \emph{updated \today} & & \makefield{}{Norfolk, VA 23529}\\
+  \end{tabularx}
+  \egroup
+}
+
+\rightheader{~}

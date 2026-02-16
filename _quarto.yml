@@ -1,0 +1,33 @@
+project:
+  type: default
+  output-dir: _build
+  render:
+    - cv-full.qmd
+    - cv-odu.qmd
+    - cv-1p.qmd
+    - cv-2p.qmd
+    - cv-3p.qmd
+    - cv-web.qmd
+  pre-render:
+    - "python3 scripts/prepare_texlive.py"
+    - ".venv/bin/python scripts/build_sections.py"
+    - ".venv/bin/python scripts/update_metrics.py"
+  post-render:
+    - ".venv/bin/python scripts/clean_artifacts.py"
+
+
+execute:
+  enabled: false
+
+format:
+  pdf:
+    documentclass: curve
+    classoption:
+      - letterpaper
+      - skipsamekey
+      - 11pt
+      - english
+    pdf-engine: latexmk
+    latex-max-runs: 4
+    cite-method: biblatex
+    include-in-header: preamble.tex

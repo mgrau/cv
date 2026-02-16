@@ -1,0 +1,292 @@
+%%%%%%%%%%%%%%%
+% This CV example/template is based on my own
+% CV which I (lamely attempted) to clean up, so that
+% it's less of an eyesore and easier for others to use.
+%
+% LianTze Lim (liantze@gmail.com)
+% 23 Oct, 2022
+% 24 Aug, 2024 -- added simpleicons to provide X-twitter icon
+
+\makeatletter
+\RequirePackage{silence}
+\WarningsOff[longtable]
+\WarningsOff[array]
+
+\usepackage{ifxetex,ifluatex}
+\newif\ifxetexorluatex
+\ifxetex
+  \xetexorluatextrue
+\else
+  \ifluatex
+    \xetexorluatextrue
+  \else
+    \xetexorluatexfalse
+  \fi
+\fi
+
+\ifxetexorluatex
+  \RequirePackage{fontspec}
+  \RequirePackage[p,osf,swashQ]{cochineal}
+  \RequirePackage[medium,bold]{cabin}
+  \RequirePackage[varqu,varl,scale=0.9]{zi4}
+\else
+  \RequirePackage[T1]{fontenc}
+  \RequirePackage[p,osf,swashQ]{cochineal}
+  \RequirePackage{cabin}
+  \RequirePackage[varqu,varl,scale=0.9]{zi4}
+\fi
+
+\RequirePackage{graphicx}
+\RequirePackage[hyphens]{url}
+\RequirePackage{babel}
+\raggedright
+
+\RequirePackage[fixed]{fontawesome5}
+\RequirePackage{simpleicons}
+
+\newcommand{\smallcaps}[1]{\textsc{\lowercase{#1}}}
+
+% geometry is loaded by Quarto - options set in qmd files
+\RequirePackage{relsize}
+\RequirePackage[dvipsnames,svgnames]{xcolor}
+\RequirePackage{tikz}
+\usetikzlibrary{shapes,shadows}
+
+\RequirePackage{comment}
+\RequirePackage{multirow}
+% \definecolor{SwishLineColour}{HTML}{88AC0B}
+% \definecolor{MarkerColour}{HTML}{B6073F}
+
+% \definecolor{color0}{RGB}{6, 10, 13} % black
+\definecolor{SwishLineColour}{RGB}{15, 46, 63} % dark blue
+% \definecolor{color2}{RGB}{105, 130, 140} % gray
+\definecolor{MarkerColour}{RGB}{5, 127, 140}  % teal
+% \definecolor{SwishLineColour}{RGB}{140, 55, 48} % red
+
+% If you're not a researcher nor an academic, you probably don't need biblatex; delete this line.
+\PassOptionsToPackage{style=phys,biblabel=brackets}{biblatex}
+\RequirePackage{biblatex}
+\ExecuteBibliographyOptions{doi=true,url=false,eprint=false,sorting=ydnt,giveninits=true,maxnames=99,minnames=99,maxbibnames=99,minbibnames=99,maxcitenames=99,mincitenames=99}
+\AtEveryBibitem{\clearfield{url}\clearfield{urldate}\clearfield{eprint}\clearfield{eprintclass}\clearfield{eprinttype}}
+\renewbibmacro*{in:}{}
+\DeclareNameAlias{default}{given-family}
+\DeclareSortingTemplate{ydnt}{%
+  \sort{\field{presort}}%
+  \sort[direction=descending]{\field{sortyear}\field{year}}%
+  \sort[direction=descending]{\field{month}}%
+  \sort[direction=descending]{\field{day}}%
+  \sort{\field{sortname}\field{author}\field{editor}\field{translator}}%
+  \sort{\field{sorttitle}\field{title}}%
+}
+\AtBeginBibliography{%
+  \setcounter{maxnames}{99}%
+  \setcounter{minnames}{99}%
+}
+\DefineBibliographyStrings{english}{url={\textsc{url}}}
+\RequirePackage{csquotes}
+
+\RequirePackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+   \node[shape=circle,text=white,fill=MarkerColour!80!black,font=\sffamily\scriptsize\bfseries,inner sep=1pt,text height=1.35ex,minimum width=1.5em,text centered] (char) {#1};}}
+   
+% Count total number of entries in each refsection
+\AtDataInput{%
+  \csnumgdef{entrycount:\therefsection}{%
+    \csuse{entrycount:\therefsection}+1}}
+
+% Print the labelnumber as the total number of entries in the
+% current refsection, minus the actual labelnumber, plus one
+% \DeclareFieldFormat{labelnumberwidth}{\makebox[2.5em][c]{#1\adddot}}%
+\DeclareFieldFormat{labelnumberwidth}{\hspace{1em}#1\adddot}
+\DeclareFieldFormat{labelnumber}{\mkbibdesc{#1}}    
+\newrobustcmd*{\mkbibdesc}[1]{%
+  \number\numexpr\csuse{entrycount:\therefsection}+1-#1\relax}
+
+
+% \newcounter{bibitem}
+% \AtBeginBibliography{\setcounter{bibitem}{1}}
+% % \AtBeginBibliography{\setcounter{bibitem}{\number\numexpr\csuse{entrycount:\therefsection}-2}}
+% \iffieldformatundef{labelnumberwidth}{%
+%   % if author-year style
+%   \AtEveryBibitem{\makebox[2.5em][l]{\circled{\thebibitem}\stepcounter{bibitem}}}%
+% }{%
+%   % if numeric style
+%   % \DeclareFieldFormat{labelnumberwidth}{\makebox[2.5em][l]{\circled{\thebibitem}}}%
+%   \DeclareFieldFormat{labelnumberwidth}{\makebox[2.5em][c]{\thebibitem.}}%
+
+%   \setlength{\biblabelsep}{0pt}%
+%   \AtEveryBibitem{\addtocounter{bibitem}{1}}%
+% }
+
+% \renewcommand{\bibfont}{\small}
+\setlength{\bibitemsep}{1.5ex}
+\setlength{\bibhang}{2.5em}
+\RequirePackage{xpatch}
+% APS-style bibliography formatting
+% Bold volume number
+\DeclareFieldFormat[article]{volume}{\textbf{#1}}
+% Remove "p." prefix from pages
+\DeclareFieldFormat[article]{pages}{#1}
+% Suppress issue number
+\AtEveryBibitem{\clearfield{number}}
+% Use year only (not full date) - redefine date format
+\DeclareFieldFormat[article]{date}{\mkbibparens{#1}}
+\renewbibmacro*{issue+date}{%
+  \printfield{year}%
+  \newunit}
+% Format: Journal Volume, Pages (Year)
+\renewbibmacro*{journal+issuetitle}{%
+  \usebibmacro{journal}%
+  \setunit*{\addspace}%
+  \printfield{volume}%
+  \setunit{\addcomma\space}%
+  \printfield{pages}%
+  \setunit{\addspace}%
+  \printtext{\mkbibparens{\printfield{year}}}%
+  \newunit}
+
+\DeclareFieldFormat{doi}{%
+  \textcolor{MarkerColour!80!black}{\scriptsize\faLink}{\scriptsize{DOI}}:~%
+  \ifhyperref{\href{https://doi.org/#1}{\nolinkurl{#1}}}{\nolinkurl{#1}}%
+}
+
+\headerscale{1}
+%\setlength{\headerspace}{6pt}
+\rubricfont{\Large\bfseries\sffamily}
+\setlength{\rubricspace}{2pt}
+%\setlength{\rubricafterspace}{-9pt}
+\setlength{\rubricafterspace}{-3pt}
+\setlength{\subrubricspace}{3pt}
+\setlength{\subrubricbeforespace}{4pt}
+\def\@@rubrichead#1{%
+  \begin{tikzpicture}[baseline]%\
+  \shade[left color=SwishLineColour!60!white, right color=white] rectangle (\@almosttextwidth,2.5pt);
+  \node[font={\@rubricfont},inner sep=0pt,text ragged,anchor=south west,text depth=.5ex,text height=1.5ex] at (1pt,2pt) {#1};
+  \end{tikzpicture}%
+  \vspace\rubricspace%
+}
+
+\subrubricfont{\large\bfseries\sffamily}
+\subrubricalignment{l}
+
+\newcommand{\makefield}[2]{\makebox[1.5em]{\color{MarkerColour!80!black}#1} #2\hspace{2em}}
+
+\keyalignment{r}
+\rubricalignment{l}
+\renewcommand{\arraystretch}{1.25}
+\urlstyle{tt}
+
+\newcommand{\prefixmarker}[1]{\def\@prefixmarker{#1}}
+\def\@prefixmarker{$\diamond$}
+
+\prefix{%
+  \hspace*{-1ex}
+  \color{MarkerColour!80!black}\@prefixmarker%
+  \hspace*{1ex}%
+}
+
+% Numbered entries without the prefix marker (e.g., grants, students).
+\newcounter{numentry}
+\newcommand{\resetnumentry}{\setcounter{numentry}{0}}
+\newcommand{\numkey}[1]{\stepcounter{numentry}\thenumentry.~#1}
+\newenvironment{numberedrubric}[1]{%
+  \resetnumentry
+  \let\saved@prefix\@prefix
+  \def\@prefix{}%
+  \begin{rubric}{#1}
+}{%
+  \end{rubric}
+  \let\@prefix\saved@prefix
+}
+
+% Enumerated entries with explicit numbering (e.g., students, talks).
+\newenvironment{enumeratedrubric}[1]{%
+  \let\saved@prefix\@prefix
+  \def\@prefix{}%
+  \begin{rubric}{#1}
+}{%
+  \end{rubric}
+  \let\@prefix\saved@prefix
+}
+
+% Grants rubric with number, date, description, and amount columns.
+\newcommand{\grantentry}[4]{#1 & #2 & #3 & #4\\}
+\newlength{\grantnumwidth}
+\newlength{\grantdatewidth}
+\newlength{\grantamountwidth}
+\newlength{\grantdescwidth}
+\newlength{\grantgapA}
+\newlength{\grantgapB}
+\newlength{\grantgapC}
+\setlength{\grantnumwidth}{2.2em}
+\setlength{\grantdatewidth}{3.2cm}
+\setlength{\grantamountwidth}{3.0cm}
+\setlength{\grantgapA}{0.6em}
+\setlength{\grantgapB}{0.9em}
+\setlength{\grantgapC}{0.9em}
+\setlength{\grantdescwidth}{\dimexpr\textwidth-\grantnumwidth-\grantdatewidth-\grantamountwidth-\grantgapA-\grantgapB-\grantgapC\relax}
+\newenvironment{grantrubric}[1]{%
+  \def\raggedright{%
+    \@rightskip\@flushglue\rightskip\@rightskip\leftskip\z@skip}%
+  \def\raggedleft{%
+    \rightskip\z@skip\leftskip\@flushglue\parfillskip\z@skip}%
+  \setlength{\LTleft}{0pt}%
+  \setlength{\LTright}{0pt}%
+  \setlength{\tabcolsep}{0pt}%
+  \begin{longtable}{@{}p{\grantnumwidth}@{\hspace{\grantgapA}}p{\grantdatewidth}@{\hspace{\grantgapB}}p{\grantdescwidth}@{\hspace{\grantgapC}}>{\raggedleft\arraybackslash}p{\grantamountwidth}@{}}
+    \multicolumn{4}{@{}l@{}}{\@@rubrichead{#1}}\\*[\rubricspace]
+    \endfirsthead
+    \multicolumn{4}{@{}l@{}}{\@@rubrichead{#1\@continuedname}}\\*[\rubricspace]
+    \endhead
+}{%
+  \end{longtable}\par\vspace\rubricafterspace
+}
+
+\newcommand{\makerubrichead}[1]{\par\leavevmode\@@rubrichead{#1}}
+
+\defbibheading{subbibliography}{\vskip\subrubricbeforespace{\@subrubricfont\hspace{3pt}#1}\par}
+
+\defbibfilter{booksandchapters}{%
+( type=book or type=incollection )
+}
+
+\RequirePackage{pgffor}
+\newcommand{\mynames}[1]{\def\my@namelist{#1}}
+\newtoggle{boldname}
+\newcommand{\applymynamestyles}{%
+  \renewcommand*{\mkbibnamefamily}[1]{%
+    \global\togglefalse{boldname}%
+    \foreach \my@fname / \my@gname in \my@namelist {%
+      \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\my@fname}}
+                   and
+                   test {\ifdefstrequal{\namepartgiven}{\my@gname}}}
+        {\global\toggletrue{boldname}}{}%
+    }%
+    \iftoggle{boldname}{\textbf{##1}}{##1}%
+  }%
+  \renewcommand*{\mkbibnamegiven}[1]{%
+    \global\togglefalse{boldname}%
+    \foreach \my@fname / \my@gname in \my@namelist{%
+      \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\my@fname}}
+                   and
+                   test {\ifdefstrequal{\namepartgiven}{\my@gname}}}
+        {\global\toggletrue{boldname}\breakforeach}{}%
+    }%
+    \iftoggle{boldname}{\textbf{##1}}{##1}%
+  }%
+}
+
+\applymynamestyles
+\AtBeginDocument{\applymynamestyles}
+
+
+\RequirePackage[colorlinks=true,allcolors=black,breaklinks=true]{hyperref}
+
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[R]{Page \thepage\ of \pageref*{LastPage}}
+
+\makeatother

@@ -1,0 +1,18 @@
+---
+format:
+  pdf:
+    geometry:
+      - letterpaper
+      - margin=0.75in
+---
+
+\makeheaders[c]
+\setlength{\rubricafterspace}{-6pt}
+\setlength{\rubricspace}{0pt}
+
+\makerubric{sections/tex/education}
+\makerubric{sections/tex/appointments}
+\input{sections/tex/publications_short}
+\makerubric{sections/tex/grants_short}
+\makerubric{sections/tex/students_short}
+\makerubric{sections/tex/conference_talks}

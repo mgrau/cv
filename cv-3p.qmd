@@ -1,0 +1,16 @@
+---
+format:
+  pdf:
+    geometry:
+      - letterpaper
+      - margin=0.75in
+---
+
+\makeheaders[c]
+\makerubric{sections/tex/education}
+\makerubric{sections/tex/appointments}
+\input{sections/tex/publications}
+\makerubric{sections/tex/grants/awarded}
+\makerubric{sections/tex/students}
+\makerubric{sections/tex/conference_talks}
+\makerubric{sections/tex/seminar_talks}

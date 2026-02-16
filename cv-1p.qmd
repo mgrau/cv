@@ -1,0 +1,19 @@
+---
+format:
+  pdf:
+    geometry:
+      - letterpaper
+      - margin=0.5in
+---
+
+\makeheaders[c]
+\setlength{\rubricafterspace}{-8pt}
+\setlength{\rubricspace}{-2pt}
+\setlength{\subrubricspace}{0pt}
+
+\makerubric{sections/tex/education}
+
+\makerubric{sections/tex/current_position}
+\makerubric{sections/tex/research_highlights}
+
+\input{sections/tex/publications_short}
