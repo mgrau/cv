@@ -10,11 +10,13 @@ format:
 \makerubric{sections/tex/education}
 \makerubric{sections/tex/appointments}
 \makerubric{sections/tex/teaching_condensed}
+\makerubric{sections/tex/awards}
+\newpage
 \input{sections/tex/publications}
 \makerubric{sections/tex/conference_talks}
 \makerubric{sections/tex/seminar_talks}
 \makerubric{sections/tex/contributed_talks}
-\makerubric{sections/tex/awards}
+
 \makerubric{sections/tex/students}
 \makerubric{sections/tex/dissertation_committees}
 \makerubric{sections/tex/grants/pending}
@@ -22,3 +24,4 @@ format:
 <!-- \makerubric{sections/tex/grants/not_awarded} -->
 \makerubric{sections/tex/service_academic}
 \makerubric{sections/tex/service_professional}
+\makerubric{sections/tex/community_engagement}
