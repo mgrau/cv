@@ -23,21 +23,21 @@ subrubric_preamble: |
 
 ### Senior Thesis Committees
 
-- _Isaiah McCoy_, Senior Thesis, Physics
-- Maria Rekkus, Senior Thesis, Physics
-- Jessica Blevins, Senior Thesis, Physics
-- Andrew Maciejunes, Senior Thesis, Physics
-- Colin Matthews, Senior Thesis, Physics
-- _Annika Cote_, Senior Thesis, Physics
-- Theodore Skelton, Senior Thesis, Physics
-- _Melanie Johnson_, Senior Thesis, Physics
-- _Ryan O'Neill_, Senior Thesis, Physics
-- Gabriel Barrios, Senior Thesis, Physics
-- Ruben Galicia-Avila, Senior Thesis, Physics
-- _Evan Johnson_, Senior Thesis, Physics
-- _DaRon Wilkins_, Senior Thesis, Physics
-- _David Routhier_, Senior Thesis, Physics
-- _Thomas Powell_, Senior Thesis, Physics
-- Mark Reginato-Colon, Senior Thesis, Physics
-- Urban Kobal, Senior Thesis, Physics
-- Adam Lane, Senior Thesis, Physics
+- 2026 | _Isaiah McCoy_, Senior Thesis, Physics
+- 2026 | _Joshua Wager_, Senior Thesis, Physics
+- 2025 | Maria Rekkus, Senior Thesis, Physics
+- 2025 | Jessica Blevins, Senior Thesis, Physics
+- 2025 | Andrew Maciejunes, Senior Thesis, Physics
+- 2025 | Colin Matthews, Senior Thesis, Physics
+- 2024 | _Annika Cote_, Senior Thesis, Physics
+- 2024 | Theodore Skelton, Senior Thesis, Physics
+- 2024 | _Ryan O'Neill_, Senior Thesis, Physics
+- 2024 | Gabriel Barrios, Senior Thesis, Physics
+- 2024 | Ruben Galicia-Avila, Senior Thesis, Physics
+- 2023 | _Evan Johnson_, Senior Thesis, Physics
+- 2023 | _DaRon Wilkins_, Senior Thesis, Physics
+- 2023 | _David Routhier_, Senior Thesis, Physics
+- 2023 | _Thomas Powell_, Senior Thesis, Physics
+- 2022 | Mark Reginato-Colon, Senior Thesis, Physics
+- 2022 | Urban Kobal, Senior Thesis, Physics
+- 2022 | Adam Lane, Senior Thesis, Physics
