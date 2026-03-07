@@ -6,7 +6,7 @@ type: dated
 
 ### Department
 
-- Spring 2026 | Faculty Search Committee
+- Spring 2026 | AMO Faculty Search Committee
 - 2024 -- | Graduate Admissions Committee
 - 2022 -- | Graduate Recruitment Committee
 - 2022 -- | Graduate Preview Committee
@@ -24,10 +24,11 @@ type: dated
 
 ### University
 
+- Spring 2026 | Faculty Grievance Panel Chair
 - Spring 2025 -- | General Education Steering Committee
 - Summer 2025 -- | General Education Student Learning Outcomes Working Group
 - Summer 2025 -- | General Education First Year Seminar Working Group
-- Fall 2024 | General Education Reading Group
+- Fall 2024 | General Education Reform Reading Group
 - 2023 -- | Radiation Safety Committee
 - Spring 2025 | Radiation Safety Officer Search Committee
 - Spring 2022 | Lead Marshall, Advanced Degree Commencement Ceremony, Strome College of Business
