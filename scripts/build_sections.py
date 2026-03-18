@@ -269,8 +269,8 @@ def render_section(doc: SectionDoc, source_path: pathlib.Path) -> str:
                 lines.append("")
                 lines.append(rf"\subrubric{{{group.title}}}")
                 if doc.subrubric_preamble:
-                    # Use \noalign to insert content between table rows
-                    lines.append(rf"\noalign{{\vbox{{\small {doc.subrubric_preamble}}}\vskip 2pt}}")
+                    # Use a multicolumn row (safe with \LTXtable; \noalign causes infinite loop)
+                    lines.append(rf"\multicolumn{{3}}{{@{{}}l@{{}}}}{{\small {doc.subrubric_preamble}}}\\[2pt]")
 
             counter_idx = group_to_counter.get(group.title, 0) if group.title else 0
 

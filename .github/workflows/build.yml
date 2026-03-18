@@ -1,0 +1,60 @@
+name: Build CV
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          tinytex: true
+
+      - name: Cache TinyTeX packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.TinyTeX
+          key: tinytex-${{ hashFiles('**/*.sty', '**/*.qmd', '_quarto.yml') }}
+          restore-keys: tinytex-
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install uv
+        run: pip install uv
+
+      - name: Cache Python venv
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: venv-py3.12-scholarly
+          restore-keys: venv-py3.12-
+
+      - name: Install Python dependencies
+        run: |
+          uv venv .venv
+          uv pip install scholarly --python .venv/bin/python
+
+      - name: Build CV
+        env:
+          CV_SCHOLAR_DISABLE: '1'
+        run: quarto render
+
+      - name: Upload PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv-pdfs
+          path: _build/*.pdf
+          retention-days: 90
