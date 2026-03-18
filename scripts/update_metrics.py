@@ -6,8 +6,8 @@ import json
 import os
 import re
 import sys
+import threading
 from collections import Counter
-from concurrent.futures import ThreadPoolExecutor, TimeoutError
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Optional, Tuple
@@ -152,23 +152,34 @@ def main() -> int:
         scholar_updated_at = cache.get("updated_at")
 
     if should_refresh(cache):
-        try:
-            with ThreadPoolExecutor(max_workers=1) as executor:
-                future = executor.submit(fetch_scholar, USER_ID)
-                scholar_data = future.result(timeout=TIMEOUT_SECONDS)
+        result_holder: list = [None]
+        error_holder: list = [None]
+
+        def _fetch_target() -> None:
+            try:
+                result_holder[0] = fetch_scholar(USER_ID)
+            except Exception as exc:
+                error_holder[0] = exc
+
+        thread = threading.Thread(target=_fetch_target, daemon=True)
+        thread.start()
+        thread.join(timeout=TIMEOUT_SECONDS)
+
+        if thread.is_alive():
+            print(
+                f"Warning: Scholar refresh timed out after {TIMEOUT_SECONDS}s.",
+                file=sys.stderr,
+            )
+        elif error_holder[0] is not None:
+            print(f"Warning: Scholar refresh failed: {error_holder[0]}", file=sys.stderr)
+        else:
+            scholar_data = result_holder[0]
             scholar_updated_at = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
             cache_path.write_text(
                 json.dumps({"updated_at": scholar_updated_at, "data": scholar_data}, indent=2),
                 encoding="utf-8",
             )
             print("Updated Google Scholar cache.")
-        except TimeoutError:
-            print(
-                f"Warning: Scholar refresh timed out after {TIMEOUT_SECONDS}s.",
-                file=sys.stderr,
-            )
-        except Exception as exc:
-            print(f"Warning: Scholar refresh failed: {exc}", file=sys.stderr)
 
     stats = {
         "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
