@@ -12,6 +12,7 @@ subrubric_preamble: |
 ### PhD Committees
 
 - 2026 -- | Sushil Poudel, PhD Electrical and Computer Engineering
+- 2026 -- | Colin Kirk, PhD Electrical and Computer Engineering
 - 2025 -- | Kazuki Makino, PhD Physics
 - 2024 -- | Markus Zirnheld, PhD Physics
 - 2023 -- | Dylan English, PhD Physics
