@@ -36,7 +36,7 @@ jobs:
             biblatex-phys biber silence relsize fancyhdr lastpage \
             csquotes xpatch comment multirow pgf \
             etoolbox microtype caption float bookmark xurl \
-            footnotehyper booktabs iftex parskip subcaption
+            footnotehyper booktabs iftex parskip
 
       - name: Setup Python
         uses: actions/setup-python@v5
