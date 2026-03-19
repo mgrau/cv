@@ -63,11 +63,46 @@ jobs:
           CV_SCHOLAR_DISABLE: '1'
         run: quarto render
 
-      - name: Upload PDFs
+      - name: Upload cv-full.pdf
         uses: actions/upload-artifact@v4
         with:
-          name: cv-pdfs
-          path: _build/*.pdf
+          name: cv-full
+          path: _build/cv-full.pdf
+          retention-days: 90
+
+      - name: Upload cv-odu.pdf
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv-odu
+          path: _build/cv-odu.pdf
+          retention-days: 90
+
+      - name: Upload cv-3p.pdf
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv-3p
+          path: _build/cv-3p.pdf
+          retention-days: 90
+
+      - name: Upload cv-2p.pdf
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv-2p
+          path: _build/cv-2p.pdf
+          retention-days: 90
+
+      - name: Upload cv-1p.pdf
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv-1p
+          path: _build/cv-1p.pdf
+          retention-days: 90
+
+      - name: Upload cv-web.pdf
+        uses: actions/upload-artifact@v4
+        with:
+          name: cv-web
+          path: _build/cv-web.pdf
           retention-days: 90
 
       - name: Upload LaTeX logs on failure
