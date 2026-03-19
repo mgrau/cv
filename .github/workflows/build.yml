@@ -29,6 +29,7 @@ jobs:
 
       - name: Install LaTeX packages
         run: |
+          export PATH="$HOME/.TinyTeX/bin/$(uname -m)-linux:$PATH"
           tlmgr install \
             curve cochineal cabin inconsolata fontawesome5 simpleicons \
             biblatex-phys biber silence relsize fancyhdr lastpage \
