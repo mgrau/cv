@@ -23,6 +23,7 @@ def main() -> int:
         "cv-web",
     ]
     output_dir = Path(os.environ.get("QUARTO_PROJECT_OUTPUT_DIR", root / "_build"))
+    output_dir.mkdir(parents=True, exist_ok=True)
     for stem in stems:
         (root / f"{stem}.bbl").touch()
         (output_dir / f"{stem}.bbl").touch()
