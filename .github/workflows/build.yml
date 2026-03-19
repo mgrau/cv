@@ -27,6 +27,13 @@ jobs:
           key: tinytex-${{ hashFiles('**/*.sty', '**/*.qmd', '_quarto.yml') }}
           restore-keys: tinytex-
 
+      - name: Install LaTeX packages
+        run: |
+          tlmgr install \
+            curve cochineal cabin inconsolata fontawesome5 simpleicons \
+            biblatex-phys biber silence relsize fancyhdr lastpage \
+            csquotes xpatch comment multirow pgf
+
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
