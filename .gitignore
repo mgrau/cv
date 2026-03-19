@@ -2,7 +2,10 @@
 _build/
 
 # Generated TeX sections (rebuilt from sections/*.md)
-sections/tex/
+# publications*.tex are hand-written and tracked in git
+sections/tex/*
+!sections/tex/publications.tex
+!sections/tex/publications_short.tex
 
 # Generated data/stats (rebuilt by update_metrics.py)
 data/stats.*
