@@ -1,0 +1,25 @@
+%% Sometimes when a section can't be nicely modelled with the \entry[]... mechanism; hack our own
+\makerubrichead{Publications}
+(1428 citations, h-index 12)
+
+%% Assuming you've already given \addbibresource{own-bib.bib} in the main doc. Right? Right???
+
+
+%% If you just want everything in one list
+% \printbibliography[heading={none}]
+
+\begin{refsection}[submitted]
+\nocite{*}
+\printbibliography[heading={subbibliography},title={Submitted Manuscripts},resetnumbers=true]
+\end{refsection}
+
+\begin{refsection}[published]
+\nocite{*}
+\printbibliography[heading={subbibliography},title={Peer Reviewed Articles},resetnumbers=true]
+\end{refsection}
+
+% \printbibliography[heading={subbibliography},title={Submitted Manuscripts},type=misc]
+
+% \printbibliography[heading={subbibliography},title={Conference Proceedings},type=inproceedings]
+
+% \printbibliography[heading={subbibliography},title={Books and Chapters},filter={booksandchapters}]
