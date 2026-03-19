@@ -21,7 +21,6 @@ execute:
 
 format:
   pdf:
-    latex-auto-install: false
     documentclass: curve
     classoption:
       - letterpaper

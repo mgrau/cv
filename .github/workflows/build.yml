@@ -34,7 +34,9 @@ jobs:
           tlmgr install \
             curve cochineal cabin inconsolata fontawesome5 simpleicons \
             biblatex-phys biber silence relsize fancyhdr lastpage \
-            csquotes xpatch comment multirow pgf
+            csquotes xpatch comment multirow pgf \
+            etoolbox microtype caption float bookmark xurl \
+            footnotehyper booktabs iftex parskip subcaption
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -67,3 +69,11 @@ jobs:
           name: cv-pdfs
           path: _build/*.pdf
           retention-days: 90
+
+      - name: Upload LaTeX logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: latex-logs
+          path: "*.log"
+          retention-days: 7
