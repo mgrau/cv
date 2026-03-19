@@ -55,7 +55,7 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          uv venv .venv
+          uv venv --clear .venv
           uv pip install scholarly --python .venv/bin/python
 
       - name: Build CV
