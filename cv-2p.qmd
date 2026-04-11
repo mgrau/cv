@@ -12,7 +12,7 @@ format:
 
 \makerubric{sections/tex/education}
 \makerubric{sections/tex/appointments}
-\input{sections/tex/publications_short}
+\input{sections/tex/publications_selected}
 \makerubric{sections/tex/grants_short}
 \makerubric{sections/tex/students_short}
 \makerubric{sections/tex/conference_talks}
