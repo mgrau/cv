@@ -20,7 +20,7 @@ subrubric_preamble: |
 - 2023 -- | _Urban Kobal_, PhD Physics
 - 2022 -- | _William Jeffries_, PhD Physics
 - 2022 -- | Greg Blume, PhD Physics
-- 2022 -- | Noah Swan, PhD Physics
+- 2022 -- 2026 | Noah Swan, PhD Physics
 
 ### Senior Thesis Committees
 
