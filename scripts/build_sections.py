@@ -140,8 +140,23 @@ def parse_markdown(body: str, fm: dict) -> Tuple[str, List[SectionGroup]]:
             groups.append(SectionGroup(current_group_title, current_items))
         current_items = []
 
+    in_comment = False
     for raw_line in body.splitlines():
         line = raw_line.rstrip()
+
+        # Skip HTML comments anywhere in the body. Only the leading metadata
+        # comment is consumed by parse_metadata; without this, an explanatory
+        # comment mid-file would be emitted as literal text in the PDF.
+        if in_comment:
+            if "-->" in line:
+                in_comment = False
+            continue
+        stripped = line.strip()
+        if stripped.startswith("<!--"):
+            if "-->" not in stripped:
+                in_comment = True
+            continue
+
         if not line.strip():
             if current_item_lines is not None:
                 current_item_lines.append("")
