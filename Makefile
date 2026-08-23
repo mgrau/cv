@@ -2,6 +2,7 @@
 # Usage: make [target]
 #
 # Targets:
+#   generate     Build generated/ (required before a first render)
 #   all          Render all documents (both PDF and HTML)
 #   pdf          Render all documents to PDF only
 #   html         Render all documents to HTML only
@@ -18,12 +19,22 @@
 #   3p-html / 2p-html / 1p-html
 #   clean        Remove _build/
 
-.PHONY: all pdf html cv odu 3p 2p 1p \
+.PHONY: all generate pdf html cv odu 3p 2p 1p \
         cv-pdf cv-html odu-pdf odu-html \
         3p-pdf 3p-html 2p-pdf 2p-html 1p-pdf 1p-html \
         clean
 
-all:
+PYTHON = .venv/bin/python
+
+# Build generated/ before Quarto runs. Quarto resolves {{< include >}}
+# directives while enumerating project files, which happens before its own
+# pre-render hooks, so on a clean checkout the includes fail without this.
+generate:
+	$(PYTHON) scripts/build_sections.py
+	$(PYTHON) scripts/update_metrics.py
+	$(PYTHON) scripts/render_publications_web.py
+
+all: generate
 	quarto render
 
 pdf:

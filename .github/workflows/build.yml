@@ -62,6 +62,15 @@ jobs:
           uv venv --clear .venv
           uv pip install scholarly --python .venv/bin/python
 
+      # Quarto resolves {{< include >}} directives while enumerating project
+      # input files, which happens BEFORE pre-render scripts run. On a clean
+      # checkout generated/ does not exist yet, so the includes fail. Generate
+      # it up front; the pre-render hooks then re-run these idempotently.
+      - name: Generate sections
+        env:
+          CV_SCHOLAR_DISABLE: '1'
+        run: make generate
+
       - name: Build CV
         env:
           CV_SCHOLAR_DISABLE: '1'

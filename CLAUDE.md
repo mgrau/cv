@@ -11,8 +11,19 @@ Academic CV workspace using Quarto + LaTeX with the CurVe document class. CV con
 Render all CV variants:
 
 ```bash
-quarto render
+make            # generate + quarto render
 ```
+
+On a clean checkout you must build `generated/` before Quarto runs:
+
+```bash
+make generate   # or: quarto render will fail on missing includes
+```
+
+Quarto resolves `{{< include >}}` directives while enumerating project input
+files, which happens *before* its own pre-render hooks — so `generated/` has to
+exist already. Once it does, plain `quarto render` works and the pre-render
+hooks keep it up to date.
 
 Render a single variant:
 
