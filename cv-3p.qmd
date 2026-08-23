@@ -1,16 +1,23 @@
----
-format:
-  pdf:
-    geometry:
-      - letterpaper
-      - margin=0.75in
----
+<!-- Three-page CV for funding applications: selected publications (weighted
+     impact x recency), current & pending support, mentoring, service.
+     Swap the publications include for any selection in publications/selections.json -->
 
-\makeheaders[c]
-\makerubric{sections/tex/education}
-\makerubric{sections/tex/appointments}
-\makerubric{sections/tex/teaching_condensed}
-\makerubric{sections/tex/grants/pending}
-\makerubric{sections/tex/grants/active}
-\input{sections/tex/publications}
-\makerubric{sections/tex/awards}
+{{< include sections/education.md >}}
+
+{{< include sections/appointments.md >}}
+
+{{< include generated/md/publications_selected_funding.md >}}
+
+{{< include sections/grants/active.md >}}
+
+{{< include sections/grants/pending.md >}}
+
+{{< include sections/students_short.md >}}
+
+{{< include sections/awards.md >}}
+
+{{< include sections/teaching_condensed.md >}}
+
+{{< include sections/conference_talks.md >}}
+
+{{< include sections/service_short.md >}}

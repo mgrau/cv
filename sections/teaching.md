@@ -6,6 +6,7 @@ type: dated
 
 ### Old Dominion University
 
+- Fall 2026 | PHYS 137T: Introduction to Quantum Science and Technology
 - Fall 2025 | PHYS 137T: Introduction to Quantum Science and Technology
 - Spring 2025 | PHYS 456: Intermediate Quantum Mechanics
 - Fall 2024 | PHYS 137T: Introduction to Quantum Science and Technology

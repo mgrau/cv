@@ -1,18 +1,25 @@
 ---
-format:
-  pdf:
-    geometry:
-      - letterpaper
-      - margin=0.75in
+cv-latex:
+  rubricafterspace: "-6pt"
+  rubricspace: "0pt"
 ---
 
-\makeheaders[c]
-\setlength{\rubricafterspace}{-6pt}
-\setlength{\rubricspace}{0pt}
+<!-- Two-page abbreviated CV (SCHEV Outstanding Faculty Award format: 2-page max).
+     Balanced across Boyer's four areas: teaching, discovery, integration, service.
+     Swap the publications include for any selection in publications/selections.json -->
 
-\makerubric{sections/tex/education}
-\makerubric{sections/tex/appointments}
-\input{sections/tex/publications_selected}
-\makerubric{sections/tex/grants_short}
-\makerubric{sections/tex/students_short}
-\makerubric{sections/tex/conference_talks}
+{{< include sections/education.md >}}
+
+{{< include sections/appointments.md >}}
+
+{{< include generated/md/publications_selected_default.md >}}
+
+{{< include sections/grants_short.md >}}
+
+{{< include sections/awards.md >}}
+
+{{< include sections/teaching_condensed.md >}}
+
+{{< include sections/students_short.md >}}
+
+{{< include sections/service_short.md >}}

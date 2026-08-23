@@ -1,15 +1,16 @@
 # Build output
 _build/
 
-# Generated TeX sections (rebuilt from sections/*.md)
-# publications*.tex are hand-written and tracked in git
-sections/tex/*
-!sections/tex/publications.tex
-!sections/tex/publications_short.tex
+# Generated output (rebuilt during render)
+generated/
 
 # Generated data/stats (rebuilt by update_metrics.py)
 data/stats.*
-data/gs_cache.json
+data/macros.tex
+# NOTE: data/gs_cache.json is deliberately TRACKED. CI builds run with
+# CV_SCHOLAR_DISABLE=1, so the committed cache is the only source of citation
+# counts there — without it, published CVs show "N/A citations" and the
+# impact/weighted publication selections silently fall back to date order.
 
 # LaTeX artifacts
 *.aux
@@ -35,3 +36,8 @@ __pycache__/
 
 # OS
 .DS_Store
+
+# Editor
+.vscode/
+
+/.luarc.json

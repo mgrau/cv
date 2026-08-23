@@ -2,22 +2,39 @@ project:
   type: default
   output-dir: _build
   render:
-    - cv-full.qmd
+    - cv.qmd
     - cv-odu.qmd
     - cv-1p.qmd
     - cv-2p.qmd
     - cv-3p.qmd
-    - cv-web.qmd
+    - publications.qmd
   pre-render:
     - "python3 scripts/prepare_texlive.py"
     - ".venv/bin/python scripts/build_sections.py"
     - ".venv/bin/python scripts/update_metrics.py"
+    - "python3 scripts/render_publications_web.py"
   post-render:
     - ".venv/bin/python scripts/clean_artifacts.py"
 
-
 execute:
   enabled: false
+
+filters:
+  - filters/cv_templates.lua
+
+author: "Matt Grau"
+cv:
+  phone: "(757) 683-5827"
+  email: "mgrau@odu.edu"
+  website: "www.graulab.org"
+  orcid: "0000-0002-2684-6923"
+  scholar: "lnh9kdIAAAAJ"
+  github: "mgrau"
+  address:
+    - "2100D Physical Science Building"
+    - "Physics Department"
+    - "Old Dominion University"
+    - "Norfolk, VA 23529"
 
 format:
   pdf:
@@ -31,3 +48,20 @@ format:
     latex-max-runs: 4
     cite-method: biblatex
     include-in-header: preamble.tex
+    geometry:
+      - letterpaper
+      - margin=0.75in
+  html:
+    theme: none
+    css: styles/cv-web.scss
+    toc: false
+    toc-depth: 2
+    toc-location: left
+    number-sections: false
+    embed-resources: true
+    smooth-scroll: true
+    html-math-method: mathjax
+    include-in-header:
+      text: |
+        <meta name="color-scheme" content="light">
+        <script defer src="styles/cv-web.js"></script>

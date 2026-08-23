@@ -7,6 +7,8 @@ type: dated
 ### Department
 
 - Spring 2026 | AMO Faculty Search Committee
+- Spring 2026 | Submitted College of Sciences Undergraduate Research Program on behalf of the department
+- 2025 | Physics Department SWOT Committee
 - 2024 -- | Graduate Admissions Committee
 - 2022 -- | Graduate Recruitment Committee
 - 2022 -- | Graduate Preview Committee
@@ -16,6 +18,7 @@ type: dated
 
 ### College
 
+- Spring 2026 | Trailing Marshall, Undergraduate Degree Ceremony
 - Fall 2025 | Lead Marshall, Undergraduate Degree Ceremony
 - Spring 2025 | Faculty Marshall, Undergraduate Degree Ceremony
 - Fall 2023 | Robing Marshall, Undergraduate Degree Ceremony
@@ -24,6 +27,8 @@ type: dated
 
 ### University
 
+- Summer 2026 -- | Vertically Integrated Program for Undergraduate Research (VIPUR) Founding Faculty Group
+- Spring 2026 -- | Quantum Students Association Faculty Advisor
 - Spring 2026 | Faculty Grievance Panel Chair
 - Spring 2025 -- | General Education Steering Committee
 - Summer 2025 -- | General Education Student Learning Outcomes Working Group

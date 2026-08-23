@@ -1,12 +1,13 @@
 <!--
 type: dated
+tex: generated/tex/teaching_condensed
 -->
 
 ## Teaching
 
 ### Old Dominion University
 
-- Fall 2023 -- 2025 | PHYS 137T: Introduction to Quantum Science and Technology
+- Fall 2023 -- 2026 | PHYS 137T: Introduction to Quantum Science and Technology
 - Spring 2022 -- 2025 | PHYS 456: Intermediate Quantum Mechanics
 - Fall 2022, Spring 2023 | PHYS 297: Introduction to Undergraduate Research
   (co-Instructors: Charles Hyde, Yuan Zhang)

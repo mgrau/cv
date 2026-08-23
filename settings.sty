@@ -67,7 +67,7 @@
 \PassOptionsToPackage{style=phys,biblabel=brackets}{biblatex}
 \RequirePackage{biblatex}
 \ExecuteBibliographyOptions{doi=true,url=false,eprint=false,sorting=ydnt,giveninits=true,maxnames=99,minnames=99,maxbibnames=99,minbibnames=99,maxcitenames=99,mincitenames=99}
-\AtEveryBibitem{\clearfield{url}\clearfield{urldate}\clearfield{eprint}\clearfield{eprintclass}\clearfield{eprinttype}}
+\AtEveryBibitem{\clearfield{url}\clearfield{urldate}\clearfield{eprint}\clearfield{eprintclass}\clearfield{eprinttype}\clearfield{issn}\clearfield{isbn}}
 \renewbibmacro*{in:}{}
 \DeclareNameAlias{default}{given-family}
 \DeclareSortingTemplate{ydnt}{%
@@ -144,6 +144,30 @@
   \setunit{\addspace}%
   \printtext{\mkbibparens{\printfield{year}}}%
   \newunit}
+
+% For article entries, stop after the journal block so the rendered
+% bibliography does not repeat pages, issue text, or note content after
+% the year. Other entry types keep the upstream phys behavior.
+\renewbibmacro*{note+pages}{%
+  \ifentrytype{article}
+    {}
+    {%
+      \printfield{note}%
+      \setunit{\bibpagespunct}%
+      \printfield{pages}%
+      \iffieldundef{pages}
+        {%
+          \iffieldundef{eid}
+            {%
+              \iftoggle{bbx:doi}
+                {}
+                {\printfield{doi}}%
+            }
+            {}%
+        }
+        {}%
+    }%
+}
 
 \DeclareFieldFormat{doi}{%
   \textcolor{MarkerColour!80!black}{\scriptsize\faLink}{\scriptsize{DOI}}:~%
@@ -233,7 +257,10 @@
   \setlength{\LTleft}{0pt}%
   \setlength{\LTright}{0pt}%
   \setlength{\tabcolsep}{0pt}%
-  \begin{longtable}{@{}p{\grantnumwidth}@{\hspace{\grantgapA}}p{\grantdatewidth}@{\hspace{\grantgapB}}p{\grantdescwidth}@{\hspace{\grantgapC}}>{\raggedleft\arraybackslash}p{\grantamountwidth}@{}}
+  % Date column: ragged-right and unhyphenated so month ranges wrap cleanly
+  % ("September 2024 -- December 2026") instead of being justified or broken
+  % mid-word ("De-cember").
+  \begin{longtable}{@{}p{\grantnumwidth}@{\hspace{\grantgapA}}>{\raggedright\arraybackslash\hyphenpenalty=10000\exhyphenpenalty=10000}p{\grantdatewidth}@{\hspace{\grantgapB}}p{\grantdescwidth}@{\hspace{\grantgapC}}>{\raggedleft\arraybackslash}p{\grantamountwidth}@{}}
     \multicolumn{4}{@{}l@{}}{\@@rubrichead{#1}}\\*[\rubricspace]
     \endfirsthead
     \multicolumn{4}{@{}l@{}}{\@@rubrichead{#1\@continuedname}}\\*[\rubricspace]
@@ -253,6 +280,13 @@
 \RequirePackage{pgffor}
 \newcommand{\mynames}[1]{\def\my@namelist{#1}}
 \newtoggle{boldname}
+% Student co-author markers: driven by AUTHOR+an = {<n>=gradstudent} or
+% {<n>=ugstudent} data annotations in the .bib files (positions are 1-based
+% author indices). Off by default; enable per document with
+% \toggletrue{studentmarkers} (see cv-latex front matter handling).
+% Renders \textdagger for graduate and \textdaggerdbl for undergraduate
+% student co-authors.
+\newtoggle{studentmarkers}
 \newcommand{\applymynamestyles}{%
   \renewcommand*{\mkbibnamefamily}[1]{%
     \global\togglefalse{boldname}%
@@ -263,6 +297,10 @@
         {\global\toggletrue{boldname}}{}%
     }%
     \iftoggle{boldname}{\textbf{##1}}{##1}%
+    \iftoggle{studentmarkers}{%
+      \ifitemannotation{gradstudent}{\textsuperscript{\textdagger}}{}%
+      \ifitemannotation{ugstudent}{\textsuperscript{\textdaggerdbl}}{}%
+    }{}%
   }%
   \renewcommand*{\mkbibnamegiven}[1]{%
     \global\togglefalse{boldname}%

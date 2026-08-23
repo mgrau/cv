@@ -11,11 +11,12 @@ numbering_groups:
 
 ### Old Dominion University - Graduate (Current)
 
+- Summer 2026 -- | Chamod Hewa
 - Summer 2025 -- | John Hill. _in collaboration with Dr. Sylvain Marsillac_ (ECE)
-- Summer 2023 -- | Urban Kobal
+- Summer 2023 -- | Urban Kobal. Graduate Summer Award Program, 2026
 - Fall 2022 -- | Greg Blume. _in collaboration with Dr. Sylvain Marsillac_
 - Fall 2022 -- | Lucas Sturnfield. _in collaboration with Dr. Sylvain Marsillac_ (D.Eng)
-- Summer 2022 -- | Will Jeffries. VSGC Graduate STEM Research Fellowship
+- Summer 2022 -- | Will Jeffries. VSGC Graduate STEM Research Fellowship, Summer 2026 Dissertation Completion Award
 
 ### Old Dominion University - Graduate (Former)
 
@@ -23,18 +24,22 @@ numbering_groups:
 
 ### Old Dominion University - Undergraduate (Current)
 
-- Spring 2026 -- | Isaiah McCoy. Measuring the metastable D$_{5/2}$ state lifetime in Ba$^+$ (Senior Thesis)
+- Summer 2026 -- | Jacob VanSparrentak-Herring. Developing a DDS-based frequency source
+- Summer 2026 -- | Cody Hardy. Designing Helmholtz coils for $^{137}$Ba$^+$ hyperfine qubits
+- Summer 2026 -- | Rowan Marsillac. Measuring NV$^-$ spectra
+- Summer 2026 -- | Jeevan Citrarasan. FPGA experiment control of NV$^-$ centers
+- Spring 2025 -- | Ambrose Orth. Characterizing thermionic emission. Undergraduate Research and Creativity Fellowship
 - Fall 2024 -- | Austen Wendt. Fitting NV$^-$ ODMR spectra
-- Fall 2022 -- | Joshua Wager. Creating PID control of laser wavelengths. Undergraduate Research and Creativity Fellowship, VSGC Undergraduate STEM Research Scholarship, ODU Outstanding Undergraduate Researcher Award Recipient
 
 ### Old Dominion University - Undergraduate (Former)
 
+- Spring 2026 | Isaiah McCoy. Measuring the metastable D$_{5/2}$ state lifetime in Ba$^+$ (Senior Thesis)
+- Fall 2022 -- Spring 2026 | Joshua Wager. Loading barium into an ion trap using ablation (Senior Thesis). Undergraduate Research and Creativity Fellowship, VSGC Undergraduate STEM Research Scholarship, ODU Outstanding Undergraduate Researcher Award Recipient. _Now a PhD student in Physics at the University of Wisconsin--Madison._
 - Fall 2023 -- Fall 2025 | Kaitlyn Levine. Measuring AOM diffraction efficiency (Independent Undergraduate Research). _in collaboration with Dr. Charles Sukenik_
 - Summer 2025 | James Wile. Simulating mid-circuit measurement comagnetometry
-- Spring 2025 -- Summer 2025 | Ambrose Orth. Creating a pulse sequencer using a low-cost microcontroller. Undergraduate Research and Creativity Fellowship
-- Spring 2025 -- Summer 2025 | Panagiotis Taoulas. Repumping hyperfine states of Lu$^+$. Undergraduate Research and Creativity Fellowship
+- Spring 2025 -- Summer 2025 | Panagiotis Taoulas. Repumping hyperfine states of Lu$^+$. Undergraduate Research and Creativity Fellowship. _Now a PhD student in Nuclear Engineering at Texas A\&M University._
 - Summer 2024 | Annika Cote. Observing Electron Spins in Diamond Using NV$^{-}$ Centers (Senior Thesis). _in collaboration with Dr. Yuan Zhang_
-- Summer 2024 | Jessica Blevins. Photoluminescence spectroscopy of NV centers in diamond. VSGC funded REU
+- Summer 2024 | Jessica Blevins. Photoluminescence spectroscopy of NV centers in diamond. VSGC funded REU. _Now a Master's student in Physics at Miami University._
 - Summer 2024 | Michael Hildebrand. Computer code to generate microwave pulse sequences. VSGC funded REU
 - Fall 2023 -- Fall 2024 | Lawrence Umali. Generating 614 nm light to reset barium quits. Undergraduate Research and Creativity Fellowship
 - Summer 2023 -- Spring 2024 | Ryan ONeill. Calculating the rovibronic structure of I$_2$ (Senior Thesis)
@@ -43,7 +48,7 @@ numbering_groups:
 - Fall 2022 -- Spring 2023 | Thomas Powell. Saturated absorption spectroscopy of I$_2$ molecules (Senior Thesis)
 - Fall 2022 -- Spring 2023 | David Routhier. Third harmonic generation of 351 nm laser light (Senior Thesis)
 - Fall 2022 -- Spring 2023 | DaRon Wilkins. Generating laser sidebands to address hyperfine splitting the $^{3}$D$_1$ state of Lu$^+$ (Senior Thesis)
-- Summer 2022 | Alastair Deans. Calculating the rovibronic structure of I$_2$
+- Summer 2022 | Alastair Deans. Calculating the rovibronic structure of I$_2$. _Now an M.S. student in Physics at Old Dominion University._
 - Summer 2022 | Wyatt Elliot. Designing and PCB connector interface between the experimental chamber and digital control system
 - Summer 2022 -- Spring 2023 | Evan Johnson. Stabilizing multiple lasers to a single high-finesse optical cavity (Senior Thesis). VSGC Undergraduate STEM Research Scholarship
 - Spring 2022 | Urban Kobal. Simulating Ion-Trapping and the Stability of the Trap (Senior Thesis)

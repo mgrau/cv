@@ -1,44 +1,81 @@
-# Makefile for CV compilation
-# Usage: make all, make full, make web, make 3p, make 2p, make 1p, make clean
+# Makefile for CV compilation via Quarto
+# Usage: make [target]
+#
+# Targets:
+#   all          Render all documents (both PDF and HTML)
+#   pdf          Render all documents to PDF only
+#   html         Render all documents to HTML only
+#   cv           Render cv.qmd (both formats)
+#   odu          Render cv-odu.qmd (both formats)
+#   3p           Render cv-3p.qmd (both formats)
+#   2p           Render cv-2p.qmd (both formats)
+#   1p           Render cv-1p.qmd (both formats)
+#   cv-pdf       Render cv.qmd to PDF
+#   cv-html      Render cv.qmd to HTML
+#   odu-pdf      Render cv-odu.qmd to PDF
+#   odu-html     Render cv-odu.qmd to HTML
+#   3p-pdf / 2p-pdf / 1p-pdf
+#   3p-html / 2p-html / 1p-html
+#   clean        Remove _build/
 
-LATEX = latexmk -pdf -interaction=nonstopmode
-SECTIONS_MD = $(wildcard sections/*.md) $(wildcard sections/grants/*.md)
-SECTIONS_SCRIPT = scripts/build_sections.py
+.PHONY: all pdf html cv odu 3p 2p 1p \
+        cv-pdf cv-html odu-pdf odu-html \
+        3p-pdf 3p-html 2p-pdf 2p-html 1p-pdf 1p-html \
+        clean
 
-.PHONY: all full web 3p 2p 1p clean
+all:
+	quarto render
 
-all: full web 3p 2p 1p
+pdf:
+	quarto render --to pdf
 
-full: cv-full.pdf
+html:
+	quarto render --to html
 
-web: cv-web.pdf
+cv:
+	quarto render cv.qmd
 
-3p: cv-3p.pdf
+odu:
+	quarto render cv-odu.qmd
 
-2p: cv-2p.pdf
+3p:
+	quarto render cv-3p.qmd
 
-1p: cv-1p.pdf
+2p:
+	quarto render cv-2p.qmd
 
-cv-full.pdf: cv-full.tex preamble.tex $(SECTIONS_MD) $(SECTIONS_SCRIPT) sections/tex/*.tex sections/tex/grants/*.tex publications/*.bib
-	python3 $(SECTIONS_SCRIPT)
-	$(LATEX) cv-full.tex
+1p:
+	quarto render cv-1p.qmd
 
-cv-web.pdf: cv-web.tex preamble.tex $(SECTIONS_MD) $(SECTIONS_SCRIPT) sections/tex/*.tex publications/*.bib
-	python3 $(SECTIONS_SCRIPT)
-	$(LATEX) cv-web.tex
+cv-pdf:
+	quarto render cv.qmd --to pdf
 
-cv-3p.pdf: cv-3p.tex preamble.tex $(SECTIONS_MD) $(SECTIONS_SCRIPT) sections/tex/*.tex publications/*.bib
-	python3 $(SECTIONS_SCRIPT)
-	$(LATEX) cv-3p.tex
+cv-html:
+	quarto render cv.qmd --to html
 
-cv-2p.pdf: cv-2p.tex preamble.tex $(SECTIONS_MD) $(SECTIONS_SCRIPT) sections/tex/*.tex publications/*.bib
-	python3 $(SECTIONS_SCRIPT)
-	$(LATEX) cv-2p.tex
+odu-pdf:
+	quarto render cv-odu.qmd --to pdf
 
-cv-1p.pdf: cv-1p.tex preamble.tex $(SECTIONS_MD) $(SECTIONS_SCRIPT) sections/tex/*.tex publications/*.bib
-	python3 $(SECTIONS_SCRIPT)
-	$(LATEX) cv-1p.tex
+odu-html:
+	quarto render cv-odu.qmd --to html
+
+3p-pdf:
+	quarto render cv-3p.qmd --to pdf
+
+3p-html:
+	quarto render cv-3p.qmd --to html
+
+2p-pdf:
+	quarto render cv-2p.qmd --to pdf
+
+2p-html:
+	quarto render cv-2p.qmd --to html
+
+1p-pdf:
+	quarto render cv-1p.qmd --to pdf
+
+1p-html:
+	quarto render cv-1p.qmd --to html
 
 clean:
-	latexmk -C
-	rm -f *.bbl *.run.xml *.bcf *.bcf-SAVE-ERROR *.bbl-SAVE-ERROR
+	rm -rf _build/

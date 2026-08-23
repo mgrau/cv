@@ -1,0 +1,44 @@
+{
+  "_comment": "Selected-publication lists for short CV variants. Methods: 'keys' = hand-picked bib keys (edit freely); 'impact' = top N by Google Scholar citations; 'recent' = newest N; 'weighted' = citations discounted by age (halved every half_life_years). Optional 'exclude' drops keys from algorithmic selections. Each selection generates generated/md/publications_selected_<name>.md — include that file in a .qmd to use it.",
+  "default": {
+    "method": "keys",
+    "keys": ["kachwala2025", "araz2025", "araz2024", "zhou2024", "reiter2021"]
+  },
+  "impact": {
+    "method": "impact",
+    "count": 5
+  },
+  "recent": {
+    "method": "recent",
+    "count": 5
+  },
+  "balanced": {
+    "method": "weighted",
+    "count": 5,
+    "half_life_years": 5
+  },
+  "funding": {
+    "method": "weighted",
+    "count": 12,
+    "half_life_years": 5,
+    "exclude": ["ward2021", "matheny2014"]
+  },
+  "top3": {
+    "method": "weighted",
+    "count": 3,
+    "half_life_years": 5,
+    "exclude": ["ward2021", "matheny2014"]
+  },
+  "photocathodes": {
+    "method": "keys",
+    "keys": ["blume2026", "masters2026", "kachwala2025", "belfore2023"]
+  },
+  "edm": {
+    "method": "keys",
+    "keys": ["zhou2024", "maison2022", "roussy2021", "maison2020", "cairncross2017", "loh2013"]
+  },
+  "spin-boson": {
+    "method": "keys",
+    "keys": ["rainaldi2026", "araz2025", "araz2024", "reiter2021", "jain2020"]
+  }
+}

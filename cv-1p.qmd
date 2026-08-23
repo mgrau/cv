@@ -1,19 +1,25 @@
 ---
+cv-latex:
+  rubricafterspace: "-8pt"
+  rubricspace: "-2pt"
+  subrubricspace: "0pt"
 format:
   pdf:
     geometry:
-      - letterpaper
       - margin=0.5in
+  html:
+    toc: true
 ---
 
-\makeheaders[c]
-\setlength{\rubricafterspace}{-8pt}
-\setlength{\rubricspace}{-2pt}
-\setlength{\subrubricspace}{0pt}
+<!-- One-page CV: highly condensed, achievement- and metrics-focused.
+     Swap the publications include for any selection in publications/selections.json -->
 
-\makerubric{sections/tex/education}
+{{< include sections/education.md >}}
 
-\makerubric{sections/tex/current_position}
-\makerubric{sections/tex/research_highlights}
+{{< include sections/appointments.md >}}
 
-\input{sections/tex/publications_short}
+{{< include sections/research_highlights.md >}}
+
+{{< include sections/awards_selected.md >}}
+
+{{< include generated/md/publications_selected_top3.md >}}

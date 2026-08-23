@@ -4,6 +4,10 @@ type: dated
 
 ## Community Engagement
 
+- July 2026 | _Computing with Atoms Inside a Quantum Computer_, BLAST Keynote Address
+- July 2026 | _Lasers, Refraction, and Optics_, BLAST Session for 80 rising 9th and 10th grade students
+- March 2026 | _Searching for Symmetry Violations with Molecular Ions_, ODU Quantum Students Association Talk
+- March 2026 | Deep Creek Science and Medicine Academy Laboratory Tours
 - April 2025 | ODU Visiting Students Day Laboratory Tours
 - March 2024 | _Searching for missing antimatter with a single ion_, ODU College of Sciences Science Fridays Talk
 - November 2023 | _Searching for Symmetry Violation with Molecular Ions_, Society of Physics Students University at Buffalo Talk

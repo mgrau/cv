@@ -10,7 +10,7 @@ from typing import List, Optional, Tuple
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SRC_DIR = ROOT / "sections"
-OUT_DIR = ROOT / "sections" / "tex"
+OUT_DIR = ROOT / "generated" / "tex"
 
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.*)$")
 
@@ -264,13 +264,14 @@ def render_section(doc: SectionDoc, source_path: pathlib.Path) -> str:
         current_counts = {k: v for k, v in counter_totals.items()}
 
         lines.append(rf"\begin{{enumeratedrubric}}{{{doc.title}}}")
+        if doc.subrubric_preamble:
+            # Emitted once for the whole rubric, before any subrubric.
+            # Use \entry*[] (CurVe-native; \multicolumn and \noalign cause issues with \LTXtable)
+            lines.append(rf"\entry*[]{{\small {doc.subrubric_preamble}}}")
         for group in doc.groups:
             if group.title:
                 lines.append("")
                 lines.append(rf"\subrubric{{{group.title}}}")
-                if doc.subrubric_preamble:
-                    # Use \entry*[] (CurVe-native; \multicolumn and \noalign cause issues with \LTXtable)
-                    lines.append(rf"\entry*[]{{\small {doc.subrubric_preamble}}}")
 
             counter_idx = group_to_counter.get(group.title, 0) if group.title else 0
 
@@ -296,7 +297,11 @@ def render_section(doc: SectionDoc, source_path: pathlib.Path) -> str:
                 lines.append("")
                 lines.append(rf"\subrubric{{{group.title}}}")
             for item in group.items:
-                date, amount, text = split_fields(item, 3, f"{rel_source}")
+                parts = [p.strip() for p in item.split("|", 3)]
+                if len(parts) == 4:
+                    date, amount, _source_type, text = parts
+                else:
+                    date, amount, text = split_fields(item, 3, f"{rel_source}")
                 lines.append(
                     rf"\grantentry{{{current}.}}{{{date}}}{{{md_inline_to_latex(text)}}}{{{md_inline_to_latex(amount)}}}"
                 )
@@ -321,7 +326,7 @@ def build_all(src_dir: pathlib.Path, out_dir: pathlib.Path) -> int:
     errors = 0
     for md_path in sorted(src_dir.rglob("*.md")):
         # Skip markdown files under generated output dirs.
-        if "tex" in md_path.parts or "html" in md_path.parts:
+        if "tex" in md_path.parts or "html" in md_path.parts or "generated" in md_path.parts:
             continue
         rel = md_path.relative_to(src_dir)
         out_path = out_dir / rel.with_suffix(".tex")

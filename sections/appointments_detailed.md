@@ -1,5 +1,6 @@
 <!--
 type: dated
+tex: generated/tex/appointments_detailed
 -->
 
 ## Appointments

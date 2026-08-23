@@ -1,0 +1,1 @@
+{{< include generated/md/publications.md >}}

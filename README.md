@@ -5,16 +5,15 @@ This project keeps CV content in simple Markdown files and renders them into LaT
 ## Directory Layout
 
 - `sections/` — Source content for CV sections (Markdown). This is the primary place to edit content.
-- `sections/tex/` — Generated LaTeX section files. Do not edit by hand.
+- `generated/` — Generated LaTeX and Markdown, rebuilt on every render. Gitignored; do not edit by hand.
 - `publications/` — BibTeX files for publications.
 - `scripts/` — Build helpers and live-metrics updater.
-- `cv-*.tex` — Legacy LaTeX entry points (optional).
 - `cv-*.qmd` — Quarto entry points (PDF + HTML where relevant).
 
 ## How the Build Works
 
 1. `scripts/build_sections.py` parses the Markdown in `sections/` and generates:
-   - `sections/tex/*.tex` for LaTeX.
+   - `generated/tex/*.tex` for LaTeX.
 2. `scripts/update_metrics.py` (optional) fetches Google Scholar stats and parses BibTeX counts into `data/stats.*`.
 3. Quarto renders QMD files to PDF/HTML using the generated LaTeX sections.
 4. `scripts/clean_artifacts.py` removes LaTeX artifacts after rendering.
@@ -28,12 +27,13 @@ Edit the Markdown in `sections/`.
 ### Dated Sections
 
 ```markdown
----
-title: Teaching
+<!--
 type: dated
----
+-->
 
-## Institution
+## Teaching
+
+### Institution
 
 - Fall 2025 | Course title
 ```
@@ -41,11 +41,12 @@ type: dated
 ### Enumerated Sections (Descending)
 
 ```markdown
----
-title: Invited Conference Talks
+<!--
 type: enumerated
 date_position: end
----
+-->
+
+## Invited Conference Talks
 
 - May 2017 | Talk title. Venue
 ```
@@ -53,29 +54,37 @@ date_position: end
 ### Grants (Number + Date + Amount)
 
 ```markdown
----
-title: Grants Awarded
+<!--
 type: grants
----
+-->
 
-- 2024-2025 | $472,000 | _Grant title_ (Agency). Role: PI.
+## Grants Awarded
+
+- September 2024 -- December 2026 | \$472,000 | _Grant title_ (Agency). Role: Co-PI (50\%).
 ```
+
+The `## Heading` is required — it is what the Quarto filter keys on to find the
+section and map it to its generated `.tex` file. Escape LaTeX specials (`\$`, `\%`,
+`\&`). Add `tex: <path>` to the metadata comment when the source filename differs
+from the slugified heading (e.g. `teaching_condensed.md` → `## Teaching`).
 
 ## Quarto Builds
 
 Quarto entry points:
 
-- `cv-full.qmd` — Full CV (PDF) + HTML view.
+- `cv.qmd` — Canonical CV entry point. The body is pure section includes; a format-specific filter turns that into the HTML template or PDF `curve`/`\makerubric` output.
 - `cv-odu.qmd` — Full CV for ODU workflow (PDF).
 - `cv-1p.qmd` — 1-page CV (PDF).
 - `cv-2p.qmd` — 2-page CV (PDF).
 - `cv-3p.qmd` — 3-page CV (PDF).
-- `cv-web.qmd` — Web CV (PDF + HTML rendered directly from `sections/`).
+- `cv-full.qmd` — PDF-only wrapper using the same pure section-include body pattern.
+- `cv-web.qmd` — HTML-only wrapper using the same pure section-include body pattern.
 
 Render a single target:
 
 ```bash
-quarto render cv-full.qmd
+quarto render cv.qmd --to pdf
+quarto render cv.qmd --to html
 ```
 
 Render all QMD files:
