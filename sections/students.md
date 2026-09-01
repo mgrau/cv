@@ -40,7 +40,7 @@ numbering_groups:
 - Fall 2022 -- Spring 2026 | Joshua Wager. Loading barium into an ion trap using ablation (Senior Thesis). Undergraduate Research and Creativity Fellowship, VSGC Undergraduate STEM Research Scholarship, ODU Outstanding Undergraduate Researcher Award Recipient. _Now a PhD student in Physics at the University of Wisconsin--Madison._
 - Fall 2023 -- Fall 2025 | Kaitlyn Levine. Measuring AOM diffraction efficiency (Independent Undergraduate Research). _in collaboration with Dr. Charles Sukenik_
 - Summer 2025 | James Wile. Simulating mid-circuit measurement comagnetometry
-- Spring 2025 -- Summer 2025 | Panagiotis Taoulas. Repumping hyperfine states of Lu$^+$. Undergraduate Research and Creativity Fellowship. _Now a PhD student in Nuclear Engineering at Texas A\&M University._
+- Spring 2025 -- Summer 2025 | Panagiotis Taoulas. Repumping hyperfine states of Lu$^+$. Undergraduate Research and Creativity Fellowship, College of Sciences Outstanding Scholar. _Now a PhD student in Nuclear Engineering at Texas A\&M University._
 - Summer 2024 | Annika Cote. Observing Electron Spins in Diamond Using NV$^{-}$ Centers (Senior Thesis). _in collaboration with Dr. Yuan Zhang_
 - Summer 2024 | Jessica Blevins. Photoluminescence spectroscopy of NV centers in diamond. VSGC funded REU. _Now a Master's student in Physics at Miami University._
 - Summer 2024 | Michael Hildebrand. Computer code to generate microwave pulse sequences. VSGC funded REU
