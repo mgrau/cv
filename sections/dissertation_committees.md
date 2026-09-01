@@ -32,6 +32,7 @@ subrubric_preamble: |
 
 ### Senior Thesis Committees
 
+- Fall 2026 - Spring 2027 | _Ashton Trexler_, Senior Thesis, Physics. ``Trapped-ion bosonic gates''
 - Spring 2026 | _Isaiah McCoy_, Senior Thesis, Physics. ``Measuring the metastable D$_{5/2}$ state lifetime in Ba$^+$''
 - Fall 2025 - Spring 2026 | _Joshua Wager_, Senior Thesis, Physics. ``Loading barium into an ion trap using ablation''
 - Fall 2024 - Spring 2025 | Jessica Blevins, Senior Thesis, Physics. ``Missing mass profiles in disk galaxies: $\Lambda$CDM vs. nonlinear general relativity''

@@ -24,6 +24,8 @@ numbering_groups:
 
 ### Old Dominion University - Undergraduate (Current)
 
+- Fall 2026 -- | Cabell Jones. Instrumentation for oceanographic lidar
+- Fall 2026 -- | Ashton Trexler. Trapped-ion bosonic gates (Senior Thesis)
 - Summer 2026 -- | Jacob VanSparrentak-Herring. Developing a DDS-based frequency source
 - Summer 2026 -- | Cody Hardy. Designing Helmholtz coils for $^{137}$Ba$^+$ hyperfine qubits
 - Summer 2026 -- | Rowan Marsillac. Measuring NV$^-$ spectra
@@ -33,6 +35,7 @@ numbering_groups:
 
 ### Old Dominion University - Undergraduate (Former)
 
+- Summer 2026 | Luke Reisig. Simulating the Sine-Gordon Model Using an Open Quantum System. REU student
 - Spring 2026 | Isaiah McCoy. Measuring the metastable D$_{5/2}$ state lifetime in Ba$^+$ (Senior Thesis)
 - Fall 2022 -- Spring 2026 | Joshua Wager. Loading barium into an ion trap using ablation (Senior Thesis). Undergraduate Research and Creativity Fellowship, VSGC Undergraduate STEM Research Scholarship, ODU Outstanding Undergraduate Researcher Award Recipient. _Now a PhD student in Physics at the University of Wisconsin--Madison._
 - Fall 2023 -- Fall 2025 | Kaitlyn Levine. Measuring AOM diffraction efficiency (Independent Undergraduate Research). _in collaboration with Dr. Charles Sukenik_

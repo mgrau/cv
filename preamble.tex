@@ -5,6 +5,17 @@
 
 \usepackage{settings}
 
+% Quarto wraps longtable with footnote.sty's \makesavenoteenv.  That wrapper
+% conflicts with CurVe's \makerubric/ltxtable measurement passes (causing
+% "Extra \or" at the end of every rubric).  This CV has no table footnotes,
+% so restore longtable's original commands before CurVe renders its rubrics.
+\makeatletter
+\ifcsname msne$longtable\endcsname
+  \expandafter\let\expandafter\longtable\csname msne$longtable\endcsname
+  \expandafter\let\expandafter\endlongtable\csname endmsne$longtable\endcsname
+\fi
+\makeatother
+
 % Auto-generated CV metrics (citations, h-index, grant totals, student counts)
 \input{data/macros}
 
