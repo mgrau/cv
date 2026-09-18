@@ -7,7 +7,7 @@ type: grants
 - September 2026 -- May 2027 | \$750,000 | _AI-Enabled Digital Twin for Scalable Injector Optimization and Control_ (DOE). Role: Senior Personnel (11\%).
 - July 2026 -- June 2028 | \$715,000 | _High Performance GaAs-based Spin-Polarized Electron Photocathodes for DOE NP Current and Future Projects_ (DOE Award DE-SC0026828). Role: Co-PI (50\%).
 - May 2026 -- April 2027 | \$15,000 | intramural | _Expanding `How to Research': A Physics Undergraduate Research Pipeline_ (ODU College of Sciences Undergraduate Research Program). Role: PI. Submitted on behalf of the Department of Physics.
-- September 2024 -- December 2026 | \$472,000 | _Fabrication of Spin Polarized Electron Sources with High Polarization and QE for DOE NP_ (DOE). Role: Co-PI (50\%).
+- September 2024 -- December 2026 | \$529,000 | _Fabrication of Spin Polarized Electron Sources with High Polarization and QE for DOE NP_ (DOE). Role: Co-PI (50\%).
 - 2024 -- 2026 | user access | _Hybrid Quantum Computation Using Qubits and Qumodes on QSCOUT_ (Sandia National Laboratories). Role: PI.
 - February 2024 -- December 2024 | \$7,400 | _Summer Research Experience for Undergraduate Students: Exploring NV-Center Quantum Sensing_ (VSGC Innovative Proposals). Role: PI.
 - May 2023 -- May 2024 | \$10,000 | _Developing Capacity for Quantum Science with Trapped Ions_ (ODU Program for Undergraduate Research and Scholarship). Role: PI.
