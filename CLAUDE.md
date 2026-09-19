@@ -87,7 +87,8 @@ name (PDF: brief `.tex`; HTML: the Lua filter drops it), so `cv.qmd`, `cv-2p.qmd
 and `cv-3p.qmd` need no special includes. `build_sections.py` also writes a
 `_full` md+tex pair per grants section (`generated/md/grants/awarded_full.md`,
 marked `detail: full`), and `cv-odu.qmd` includes those. Keep
-`Investigators:` as the last sentence of an entry so the stripping is exact.
+`Investigators:` as the last sentence of an entry so the stripping is exact; the
+word itself is a source-only marker and is not rendered.
 
 Inline formatting: `*italic*`, `**bold**`. Use LaTeX escapes for special chars (`\%`, `\&`, `\$`).
 

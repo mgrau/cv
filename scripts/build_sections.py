@@ -239,7 +239,23 @@ def render_markdown(doc: SectionDoc, meta: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
+GRANT_INVESTIGATORS_LABEL_RE = re.compile(r"Investigators:\s*")
+
+
+def full_grant_item(item: str) -> str:
+    """The source keeps the "Investigators:" label as the marker for the ODU-only
+    detail; the rendered full entry drops the word, since the parenthetical
+    roles already identify the list."""
+    return GRANT_INVESTIGATORS_LABEL_RE.sub("", item)
+
+
 def write_full_grants(doc: SectionDoc, md_path: pathlib.Path, rel: pathlib.Path, out_dir: pathlib.Path) -> None:
+    doc = SectionDoc(
+        title=doc.title, type=doc.type, postamble=doc.postamble,
+        date_position=doc.date_position, numbering_groups=doc.numbering_groups,
+        subrubric_preamble=doc.subrubric_preamble,
+        groups=[SectionGroup(g.title, [full_grant_item(i) for i in g.items]) for g in doc.groups],
+    )
     stem = rel.with_name(rel.stem + "_full")
     (out_dir / stem.with_suffix(".tex")).write_text(render_section(doc, md_path), encoding="utf-8")
     md_out = MD_OUT_DIR / stem.with_suffix(".md")
