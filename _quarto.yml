@@ -39,10 +39,10 @@ cv:
 format:
   pdf:
     documentclass: curve
+    fontsize: 11pt
     classoption:
       - letterpaper
       - skipsamekey
-      - 11pt
       - english
     pdf-engine: latexmk
     latex-max-runs: 4

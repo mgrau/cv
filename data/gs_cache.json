@@ -1,33 +1,33 @@
 {
-  "updated_at": "2026-08-23T01:01:25.199113Z",
+  "updated_at": "2026-09-18T18:13:10.157948Z",
   "data": {
     "name": "Matt Grau",
-    "citedby": 1512,
-    "citedby5y": 894,
+    "citedby": 1538,
+    "citedby5y": 920,
     "h_index": 13,
     "h_index_5y": 12,
-    "i10_index": 16,
-    "i10_index_5y": 15,
+    "i10_index": 17,
+    "i10_index_5y": 16,
     "publications": [
       {
         "title": "Precision measurement of the electron\u2019s electric dipole moment using trapped molecular ions",
         "year": "2017",
-        "citations": 543
+        "citations": 548
       },
       {
         "title": "Phase synchronization of two anharmonic nanomechanical oscillators",
         "year": "2014",
-        "citations": 310
+        "citations": 311
       },
       {
         "title": "Precision spectroscopy of polarized molecules in an ion trap",
         "year": "2013",
-        "citations": 157
+        "citations": 160
       },
       {
         "title": "Experimental constraint on axionlike particles over seven orders of magnitude in mass",
         "year": "2021",
-        "citations": 111
+        "citations": 112
       },
       {
         "title": "Scalable arrays of micro-penning traps for quantum computing and simulation",
@@ -42,22 +42,22 @@
       {
         "title": "State-specific detection of trapped HfF+ by photodissociation",
         "year": "2014",
-        "citations": 45
+        "citations": 46
       },
       {
         "title": "Hybrid quantum simulations with qubits and qumodes on trapped-ion platforms",
         "year": "2025",
-        "citations": 35
+        "citations": 37
       },
       {
         "title": "Engineering generalized Gibbs ensembles with trapped ions",
         "year": "2021",
-        "citations": 32
+        "citations": 35
       },
       {
         "title": "Search for CP-violating nuclear magnetic quadrupole moment using the LuOH+ cation",
         "year": "2020",
-        "citations": 31
+        "citations": 33
       },
       {
         "title": "Laser-induced fluorescence studies of HfF+ produced by autoionization",
@@ -67,7 +67,7 @@
       {
         "title": "\ud835\udcaf, \ud835\udcab-Odd Effects in the LuOH\u207a Cation",
         "year": "2022",
-        "citations": 18
+        "citations": 19
       },
       {
         "title": "Near-infrared LIF spectroscopy of HfF",
@@ -80,19 +80,19 @@
         "citations": 13
       },
       {
+        "title": "State preparation of lattice field theories using quantum optimal control",
+        "year": "2025",
+        "citations": 11
+      },
+      {
         "title": "High figure of merit spin polarized electron sources grown via MOCVD",
         "year": "2023",
-        "citations": 10
+        "citations": 11
       },
       {
         "title": "Integration of a high finesse cryogenic build-up cavity with an ion trap",
         "year": "2023",
         "citations": 10
-      },
-      {
-        "title": "State preparation of lattice field theories using quantum optimal control",
-        "year": "2025",
-        "citations": 9
       },
       {
         "title": "Measuring the electron electric dipole moment with trapped molecular ions",
@@ -107,12 +107,12 @@
       {
         "title": "Nuclear Magnetic Quadrupole Moment of \u00b9\u2077\u2075Lu and Parity-Violating Polarization Degree of Levels in \u00b9\u2077\u2075LuOH\u207a",
         "year": "2023",
-        "citations": 4
+        "citations": 5
       },
       {
         "title": "Trigonometric continuous-variable gates and hybrid quantum simulations of the sine-Gordon model",
         "year": "2026",
-        "citations": 3
+        "citations": 4
       },
       {
         "title": "Designing an optical lattice trap for ions",
@@ -123,6 +123,16 @@
         "title": "Small systems of nonlinear oscillators",
         "year": "2007",
         "citations": 2
+      },
+      {
+        "title": "Impact of superlattice size on quantum efficiency and polarization in MOCVD-grown strained GaAs/GaAsP photocathodes",
+        "year": "2026",
+        "citations": 1
+      },
+      {
+        "title": "Spin-transparent storage rings for quantum computing",
+        "year": "2026",
+        "citations": 1
       },
       {
         "title": "Preparation of MOCVD-grown photocathodes containing a strained GaAs/GaAsP superlattice",
@@ -140,6 +150,11 @@
         "citations": 1
       },
       {
+        "title": "Cryogenic Enhancement of Electron Spin Polarization from a Strained GaAs/GaAsP Superlattice Photocathode",
+        "year": "2026",
+        "citations": 0
+      },
+      {
         "title": "Benchmarking trigonometric continuous-variable gate primitives with trapped ions",
         "year": "2026",
         "citations": 0
@@ -155,7 +170,7 @@
         "citations": 0
       },
       {
-        "title": "Impact of superlattice size on quantum efficiency and polarization in MOCVD-grown strained GaAs/GaAsP photocathodes",
+        "title": "MODELING QUANTUM EFFICIENCY IN PHOTOCATHODE WITH VARYING GALIUM-ARSENIDE/GALIUM-ARSENIDE-PHOSPHIDE STRAINED SUPERLATTICES.",
         "year": "2026",
         "citations": 0
       },

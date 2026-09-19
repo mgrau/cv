@@ -37,6 +37,7 @@ jobs:
           tlmgr update --self
           tlmgr install \
             curve cochineal cabin inconsolata fontawesome5 simpleicons \
+            fontspec luaotfload unicode-math lualatex-math lm-math carlito tex-gyre \
             biblatex-phys biber silence relsize fancyhdr lastpage \
             csquotes xpatch comment multirow pgf \
             etoolbox microtype caption float bookmark xurl \

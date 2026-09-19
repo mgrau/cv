@@ -49,6 +49,9 @@ Configured in `_quarto.yml` pre-render/post-render hooks:
 
 **Do not edit `generated/` files by hand** — the whole directory is rebuilt on every render and is gitignored.
 Exception: `publications/publications.tex` is hand-written and tracked in git.
+`render_publications_web.py` also writes `publications_peer_reviewed` and
+`manuscripts_under_review` (md + tex) — the Publications list split into the two
+categories the ODU template requires.
 
 ## Project Structure
 
@@ -78,6 +81,47 @@ share as a percentage next to the role, e.g. `Role: Co-PI (50\%)`. Entries with
 no percentage are treated as 100% when computing `\CVgrantshare`.
 
 Inline formatting: `*italic*`, `**bold**`. Use LaTeX escapes for special chars (`\%`, `\&`, `\$`).
+
+## Per-Document Typography (`cv-latex: typography`)
+
+`cv-odu.qmd` selects the `odu` preset, which matches the ODU Academic Affairs
+CV template: Times New Roman 12 pt body, Aptos 16 pt bold category headings.
+Presets are defined in `settings.sty` (`\CVtypography`) and need LuaLaTeX:
+
+```yaml
+cv-latex:
+  typography: odu
+format:
+  pdf:
+    pdf-engine: lualatex
+    fontsize: 12pt
+```
+
+Aptos comes with Microsoft Office, not TeX Live. The preset uses it when it is
+registered with the system or present in the Office bundle on macOS; otherwise
+it falls back to Carlito (Calibri-compatible, also allowed by the template).
+Times New Roman falls back to TeX Gyre Termes. CI has neither, so the published
+ODU PDF uses both fallbacks; render locally for the submission copy. Double
+spacing is not applied (`linestretch: 2` under `format: pdf` would add it).
+
+## Per-Document Section Headings (`cv-sections`)
+
+A `.qmd` can rename or regroup sections for its own output without touching the
+shared section files:
+
+```yaml
+cv-sections:
+  retitle:
+    Appointments: Experience          # show this section under another heading
+  demote:
+    - Dissertation Committees         # typeset as a group under the preceding category
+```
+
+A bare `## Heading` written directly in the `.qmd` (nothing under it) becomes a
+category heading with no table of its own; the demoted sections that follow it
+render as its groups. `cv-odu.qmd` uses this to follow the ODU Academic Affairs
+CV template's category names and sequence. Documents without `cv-sections` are
+unaffected.
 
 ## Publication Selections
 

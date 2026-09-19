@@ -147,6 +147,52 @@ local function collect_sections(blocks)
   return sections
 end
 
+-- Per-document section controls from the "cv-sections" front matter:
+--   retitle: {"<section title>": "<display title>", ...}
+--   demote:  ["<section title>", ...]  -- rendered as a group under the
+--                                       -- category heading that precedes it
+local function section_controls(meta)
+  local cfg = meta["cv-sections"] or {}
+  local retitle = {}
+  if cfg.retitle then
+    for key, value in pairs(cfg.retitle) do
+      retitle[key] = stringify(value)
+    end
+  end
+  local demote = {}
+  for _, name in ipairs(meta_list(cfg.demote)) do
+    demote[name] = true
+  end
+  return retitle, demote
+end
+
+local function sorted_keys(tbl)
+  local keys = {}
+  for key in pairs(tbl) do
+    table.insert(keys, key)
+  end
+  table.sort(keys)
+  return keys
+end
+
+-- A section written as a bare "## Heading" in the .qmd with nothing under
+-- it: a category heading that groups the demoted sections following it.
+local function is_heading_only(section)
+  return #section.blocks == 1
+end
+
+local function shift_headers(blocks)
+  local shifted = {}
+  for _, block in ipairs(blocks) do
+    if block.t == "Header" then
+      table.insert(shifted, pandoc.Header(math.min(block.level + 1, 6), block.content, block.attr))
+    else
+      table.insert(shifted, block)
+    end
+  end
+  return shifted
+end
+
 local function html_header(meta)
   local cv = meta.cv or {}
   local name = meta_string(cv.name, meta_string(meta.author, meta_string(meta.title, "Curriculum Vitae")))
@@ -256,14 +302,35 @@ local function latex_command_for(title, tex_override)
 end
 
 local function render_html(doc)
+  local retitle, demote = section_controls(doc.meta)
   local sections = collect_sections(doc.blocks)
   local blocks = {
     pandoc.RawBlock("html", html_header(doc.meta)),
   }
 
+  -- Each group becomes one .cv-section div with exactly one h2 (the JS
+  -- builds the collapse toggle from it); demoted sections merge into the
+  -- preceding group with their headings shifted down one level.
+  local groups = {}
   for _, section in ipairs(sections) do
-    local class_name = section.title == "Publications" and "publications-section" or "cv-section"
-    table.insert(blocks, pandoc.Div(section.blocks, pandoc.Attr("", { class_name })))
+    local content = section.blocks
+    if retitle[section.title] then
+      local header = content[1]
+      content[1] = pandoc.Header(header.level, { pandoc.Str(retitle[section.title]) }, header.attr)
+    end
+    if demote[section.title] and #groups > 0 then
+      local parent = groups[#groups]
+      for _, block in ipairs(shift_headers(content)) do
+        table.insert(parent.blocks, block)
+      end
+    else
+      table.insert(groups, { title = section.title, blocks = content })
+    end
+  end
+
+  for _, group in ipairs(groups) do
+    local class_name = group.title == "Publications" and "publications-section" or "cv-section"
+    table.insert(blocks, pandoc.Div(group.blocks, pandoc.Attr("", { class_name })))
   end
 
   table.insert(blocks, pandoc.RawBlock("html", "</div>\n</div>"))
@@ -281,9 +348,14 @@ local function render_latex(doc)
   end
 
   local sections = collect_sections(doc.blocks)
-  local blocks = {
-    pandoc.RawBlock("latex", "\\makeheaders[c]"),
-  }
+  local blocks = {}
+
+  -- A typography preset must precede \makeheaders so the name block uses it.
+  local typography = meta_string(cv_latex.typography, "")
+  if typography ~= "" then
+    table.insert(blocks, pandoc.RawBlock("latex", "\\CVtypography{" .. typography .. "}"))
+  end
+  table.insert(blocks, pandoc.RawBlock("latex", "\\makeheaders[c]"))
 
   if #spacing_parts > 0 then
     table.insert(blocks, pandoc.RawBlock("latex", table.concat(spacing_parts, "\n")))
@@ -293,12 +365,27 @@ local function render_latex(doc)
     table.insert(blocks, pandoc.RawBlock("latex", "\\toggletrue{studentmarkers}"))
   end
 
+  local retitle, demote = section_controls(doc.meta)
+  for _, key in ipairs(sorted_keys(retitle)) do
+    table.insert(blocks, pandoc.RawBlock("latex", "\\CVretitle{" .. key .. "}{" .. retitle[key] .. "}"))
+  end
+
   doc.meta.title = pandoc.MetaString("")
   doc.meta.subtitle = pandoc.MetaString("")
   doc.meta.author = pandoc.MetaList({})
 
   for _, section in ipairs(sections) do
-    table.insert(blocks, pandoc.RawBlock("latex", latex_command_for(section.title, section.tex)))
+    local command
+    if is_heading_only(section) then
+      -- Category heading with no table of its own; keep it with what follows.
+      command = "\\makerubrichead{" .. section.title .. "}\\par\\nopagebreak"
+    else
+      command = latex_command_for(section.title, section.tex)
+      if demote[section.title] then
+        command = "\\CVdemoted{" .. command .. "}"
+      end
+    end
+    table.insert(blocks, pandoc.RawBlock("latex", command))
     for _, block in ipairs(section.blocks) do
       if block.t == "RawBlock" and block.format == "latex" then
         table.insert(blocks, block)

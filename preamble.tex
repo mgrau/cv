@@ -32,11 +32,11 @@
 }
 
 % Header with contact info
-\leftheader{%
+\leftheader{\CVheaderfont%
   {\LARGE\bfseries\sffamily Matt Grau}
 
   \bgroup\def\arraystretch{1}
-  \begin{tabularx}{\linewidth}{@{}X X p{6.2cm}@{}}
+  \begin{tabularx}{\linewidth}{@{}X X p{\CVaddresswidth}@{}}
   \makefield{\faPhone}{(757) 683-5827} &
   \makefield{\faOrcid}{\href{https://orcid.org/0000-0002-2684-6923}{\texttt{0000-0002-2684-6923}}} &
   \makefield{\faMapMarker}{2100D Physical Science Building} \\
@@ -46,7 +46,8 @@
   \makefield{\faGlobe}{\href{https://www.graulab.org}{www.graulab.org}} &
   \makefield{\faGithub}{\href{https://github.com/mgrau}{\texttt{mgrau}}} &
   \makefield{}{Old Dominion University} \\
-  \emph{updated \today} & & \makefield{}{Norfolk, VA 23529}\\
+  % The middle cell of this row is empty; span it so the date never wraps.
+  \multicolumn{2}{@{}l}{\emph{updated \today}} & \makefield{}{Norfolk, VA 23529}\\
   \end{tabularx}
   \egroup
 }

@@ -28,12 +28,71 @@
   \RequirePackage{fontspec}
   \RequirePackage[p,osf,swashQ]{cochineal}
   \RequirePackage[medium,bold]{cabin}
-  \RequirePackage[varqu,varl,scale=0.9]{zi4}
+  % zi4.sty has no TU (fontspec) support: under LuaLaTeX \texttt falls back to
+  % Latin Modern with a font-shape warning. Load Inconsolata through fontspec.
+  \setmonofont{Inconsolatazi4}[Extension=.otf,UprightFont=*-Regular,BoldFont=*-Bold,Scale=0.9]
 \else
   \RequirePackage[T1]{fontenc}
   \RequirePackage[p,osf,swashQ]{cochineal}
   \RequirePackage{cabin}
   \RequirePackage[varqu,varl,scale=0.9]{zi4}
+\fi
+
+% ---------------------------------------------------------------------------
+% Named typography presets, selected per document with "cv-latex: typography"
+% (see filters/cv_templates.lua). A preset runs at the start of the document
+% body, after the preamble's default fonts, so no preamble ordering is needed;
+% fontspec allows font changes anywhere.
+%
+%   odu   ODU Academic Affairs CV template: Times New Roman 12 pt body and
+%         Aptos 16 pt bold category headings. Pair it with
+%         "pdf-engine: lualatex" and "fontsize: 12pt" in the .qmd.
+%         Aptos ships with Microsoft Office, not TeX Live: it is used if
+%         registered with the system, else loaded from the Office bundle on
+%         macOS, else replaced by Carlito, the metric-compatible clone of
+%         Calibri (the template's other permitted sans). Times New Roman
+%         falls back to TeX Gyre Termes. CI builds take both fallbacks.
+% ---------------------------------------------------------------------------
+% Header layout knobs (used by preamble.tex); presets may adjust them.
+\newlength\CVaddresswidth
+\setlength\CVaddresswidth{6.2cm}
+\newcommand\CVheaderfont{}
+
+\newcommand\CVtypography[1]{%
+  \ifcsname cv@typography@#1\endcsname
+    \csname cv@typography@#1\endcsname
+  \else
+    \PackageError{settings}{Unknown typography preset '#1'}{Known presets: odu}%
+  \fi}
+
+\ifxetexorluatex
+  \def\cv@aptosbundle{/Applications/Microsoft Excel.app/Contents/Resources/DFonts/}
+  \newcommand\cv@setsansaptos{%
+    \IfFontExistsTF{Aptos}
+      {\setsansfont{Aptos}}
+      {\IfFileExists{\cv@aptosbundle Aptos.ttf}
+        {\setsansfont{Aptos}[Path=\cv@aptosbundle,Extension=.ttf,
+           UprightFont=*,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-Bold-Italic]}
+        {\PackageWarningNoLine{settings}{Aptos not found; using Carlito (Calibri-compatible)}%
+         \setsansfont{Carlito}}}}
+  \newcommand\cv@setmaintimes{%
+    \IfFontExistsTF{Times New Roman}
+      {\setmainfont{Times New Roman}}
+      {\PackageWarningNoLine{settings}{Times New Roman not found; using TeX Gyre Termes}%
+       \setmainfont{TeX Gyre Termes}}}
+  \expandafter\def\csname cv@typography@odu\endcsname{%
+    \cv@setmaintimes
+    \cv@setsansaptos
+    \rubricfont{\fontsize{16}{19}\selectfont\bfseries\sffamily}%
+    % 12 pt Times is wider than 11 pt Cochineal: keep the contact block at
+    % roughly its original size and give the address column more room.
+    \renewcommand\CVheaderfont{\small}%
+    \setlength\CVaddresswidth{6.8cm}%
+    \normalfont}
+\else
+  \expandafter\def\csname cv@typography@odu\endcsname{%
+    \PackageError{settings}{The 'odu' typography preset needs LuaLaTeX}%
+      {Set "pdf-engine: lualatex" in the .qmd; Times New Roman and Aptos are loaded with fontspec.}}
 \fi
 
 \RequirePackage{graphicx}
@@ -182,13 +241,55 @@
 \setlength{\rubricafterspace}{-3pt}
 \setlength{\subrubricspace}{3pt}
 \setlength{\subrubricbeforespace}{4pt}
-\def\@@rubrichead#1{%
-  \begin{tikzpicture}[baseline]%\
+% ---------------------------------------------------------------------------
+% Per-document section heading control, driven by a .qmd's "cv-sections"
+% front matter (see filters/cv_templates.lua). Documents without it get the
+% original headings unchanged.
+%
+%   \CVretitle{Generated Title}{Display Title}
+%       Show a section under a different heading. The generated .tex files
+%       bake in each section's source title, so the swap happens at
+%       typesetting time and covers the "(continued)" running head too.
+%   \CVdemoted{<rubric command>}
+%       Typeset the rubric's head in the subordinate "group" style, so the
+%       section reads as part of the category heading that precedes it.
+% ---------------------------------------------------------------------------
+\newif\ifcv@demote
+\let\cv@stop\relax
+\newcommand\CVretitle[2]{\expandafter\gdef\csname cv@retitle@#1\endcsname{#2}}
+\newcommand\CVdemoted[1]{\begingroup\cv@demotetrue#1\endgroup}
+
+% Split "Title" or "Title\@continuedname" into the base title and the suffix,
+% then apply any \CVretitle mapping to the base.
+\def\cv@splitcont#1\@continuedname#2\cv@stop{%
+  \def\cv@basetitle{#1}\def\cv@contpart{#2}}
+\def\cv@resolvetitle#1{%
+  \cv@splitcont#1\@continuedname\cv@stop
+  \ifcsname cv@retitle@\cv@basetitle\endcsname
+    \csname cv@retitle@\cv@basetitle\endcsname
+  \else
+    \cv@basetitle
+  \fi
+  \ifx\cv@contpart\@empty\else\@continuedname\fi}
+
+% Category heading: full-width swish rule, rubric font.
+\def\cv@rubrichead@category#1{%
+  \begin{tikzpicture}[baseline]%
   \shade[left color=SwishLineColour!60!white, right color=white] rectangle (\@almosttextwidth,2.5pt);
-  \node[font={\@rubricfont},inner sep=0pt,text ragged,anchor=south west,text depth=.5ex,text height=1.5ex] at (1pt,2pt) {#1};
+  \node[font={\@rubricfont},inner sep=0pt,text ragged,anchor=south west,text depth=.5ex,text height=1.5ex] at (1pt,2pt) {\cv@resolvetitle{#1}};
   \end{tikzpicture}%
   \vspace\rubricspace%
 }
+% Group heading (demoted section): shorter, lighter rule, subrubric font.
+\def\cv@rubrichead@group#1{%
+  \begin{tikzpicture}[baseline]%
+  \shade[left color=SwishLineColour!35!white, right color=white] rectangle (0.45\@almosttextwidth,1.5pt);
+  \node[font={\@subrubricfont},inner sep=0pt,text ragged,anchor=south west,text depth=.5ex,text height=1.5ex] at (1pt,2pt) {\cv@resolvetitle{#1}};
+  \end{tikzpicture}%
+  \vspace\rubricspace%
+}
+\def\@@rubrichead{%
+  \ifcv@demote\expandafter\cv@rubrichead@group\else\expandafter\cv@rubrichead@category\fi}
 
 \subrubricfont{\large\bfseries\sffamily}
 \subrubricalignment{l}
