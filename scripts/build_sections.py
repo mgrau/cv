@@ -11,6 +11,7 @@ from typing import List, Optional, Tuple
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SRC_DIR = ROOT / "sections"
 OUT_DIR = ROOT / "generated" / "tex"
+MD_OUT_DIR = ROOT / "generated" / "md"
 
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.*)$")
 
@@ -202,6 +203,53 @@ def md_inline_to_latex(text: str) -> str:
 
 
 
+# ODU-only grant detail: the credit share written after the role and the
+# trailing "Investigators: ..." sentence (by convention the last sentence of an
+# entry). A grants section renders WITHOUT them under its own name, so the
+# ordinary CV variants show less detail; a "_full" md+tex pair keeps them for
+# the ODU document, which includes those instead.
+GRANT_ROLE_SHARE_RE = re.compile(r"(Role:[^.(]*?)\s*\(\d+\s*\\?%\)")
+GRANT_INVESTIGATORS_RE = re.compile(r"\s*Investigators:.*\Z", re.S)
+
+
+def brief_grant_item(item: str) -> str:
+    item = GRANT_ROLE_SHARE_RE.sub(r"\1", item)
+    return GRANT_INVESTIGATORS_RE.sub("", item).rstrip()
+
+
+def grants_brief(doc: SectionDoc) -> SectionDoc:
+    return SectionDoc(
+        title=doc.title, type=doc.type, postamble=doc.postamble,
+        date_position=doc.date_position, numbering_groups=doc.numbering_groups,
+        subrubric_preamble=doc.subrubric_preamble,
+        groups=[SectionGroup(g.title, [brief_grant_item(i) for i in g.items]) for g in doc.groups],
+    )
+
+
+def render_markdown(doc: SectionDoc, meta: dict) -> str:
+    """Re-emit a parsed section as Markdown for the HTML build. `meta` lines go
+    in the leading comment (e.g. the tex: override for the PDF build)."""
+    lines = ["<!--"] + [f"{k}: {v}" for k, v in meta.items()] + ["-->", "", f"## {doc.title}"]
+    for group in doc.groups:
+        if group.title:
+            lines += ["", f"### {group.title}"]
+        lines.append("")
+        for item in group.items:
+            lines.append("- " + item.replace("\n", "\n  "))
+    return "\n".join(lines) + "\n"
+
+
+def write_full_grants(doc: SectionDoc, md_path: pathlib.Path, rel: pathlib.Path, out_dir: pathlib.Path) -> None:
+    stem = rel.with_name(rel.stem + "_full")
+    (out_dir / stem.with_suffix(".tex")).write_text(render_section(doc, md_path), encoding="utf-8")
+    md_out = MD_OUT_DIR / stem.with_suffix(".md")
+    md_out.parent.mkdir(parents=True, exist_ok=True)
+    md_out.write_text(
+        render_markdown(doc, {"type": doc.type, "detail": "full", "tex": f"generated/tex/{stem.as_posix()}"}),
+        encoding="utf-8",
+    )
+
+
 def split_fields(text: str, expected: int, context: str) -> List[str]:
     parts = [p.strip() for p in text.split("|", expected - 1)]
     if len(parts) < expected:
@@ -359,7 +407,11 @@ def build_all(src_dir: pathlib.Path, out_dir: pathlib.Path) -> int:
                 subrubric_preamble=fm.get("subrubric_preamble"),
             )
             out_path.parent.mkdir(parents=True, exist_ok=True)
-            out_path.write_text(render_section(doc, md_path), encoding="utf-8")
+            if doc.type == "grants":
+                out_path.write_text(render_section(grants_brief(doc), md_path), encoding="utf-8")
+                write_full_grants(doc, md_path, rel, out_dir)
+            else:
+                out_path.write_text(render_section(doc, md_path), encoding="utf-8")
         except Exception as exc:
             errors += 1
             print(f"Error processing {md_path}: {exc}", file=sys.stderr)

@@ -79,6 +79,15 @@ Section types (set via `type:` in front matter):
 Grant entries put the **full award total** in the amount column and the credit
 share as a percentage next to the role, e.g. `Role: Co-PI (50\%)`. Entries with
 no percentage are treated as 100% when computing `\CVgrantshare`.
+List co-investigators in proposal order as `Investigators: A. Name (PI), B. Name
+(Co-PI), ...` in the entry text; sole-PI entries need only `Role: PI.`
+
+That detail is ODU-only. A grants section renders without it under its own
+name (PDF: brief `.tex`; HTML: the Lua filter drops it), so `cv.qmd`, `cv-2p.qmd`
+and `cv-3p.qmd` need no special includes. `build_sections.py` also writes a
+`_full` md+tex pair per grants section (`generated/md/grants/awarded_full.md`,
+marked `detail: full`), and `cv-odu.qmd` includes those. Keep
+`Investigators:` as the last sentence of an entry so the stripping is exact.
 
 Inline formatting: `*italic*`, `**bold**`. Use LaTeX escapes for special chars (`\%`, `\&`, `\$`).
 

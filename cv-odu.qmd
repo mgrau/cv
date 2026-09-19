@@ -68,15 +68,15 @@ format:
 
 {{< include generated/md/publications_peer_reviewed.md >}}
 
-{{< include sections/grants/awarded.md >}}
+{{< include generated/md/grants/awarded_full.md >}}
 
-{{< include sections/grants/declined.md >}}
+{{< include generated/md/grants/declined_full.md >}}
 
 ## Grants Applied For
 
-{{< include sections/grants/pending.md >}}
+{{< include generated/md/grants/pending_full.md >}}
 
-{{< include sections/grants/not_awarded.md >}}
+{{< include generated/md/grants/not_awarded_full.md >}}
 
 ## Research Papers Presented at Professional Meetings
 

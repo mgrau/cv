@@ -114,6 +114,8 @@ local function collect_sections(blocks)
   local sections = {}
   local current = nil
   local pending_tex = nil
+  local pending_grants = false
+  local pending_full = false
 
   for _, block in ipairs(blocks) do
     if is_html_comment(block) then
@@ -125,6 +127,12 @@ local function collect_sections(blocks)
       if override then
         pending_tex = override
       end
+      if block.text:match("type:%s*grants") then
+        pending_grants = true
+      end
+      if block.text:match("detail:%s*full") then
+        pending_full = true
+      end
     elseif block.t == "Header" and block.level == 2 then
       if current then
         table.insert(sections, current)
@@ -133,8 +141,12 @@ local function collect_sections(blocks)
         title = stringify(block.content),
         blocks = { block },
         tex = pending_tex,
+        grants = pending_grants,
+        full = pending_full,
       }
       pending_tex = nil
+      pending_grants = false
+      pending_full = false
     elseif current then
       table.insert(current.blocks, block)
     end
@@ -191,6 +203,60 @@ local function shift_headers(blocks)
     end
   end
   return shifted
+end
+
+-- Grant entries carry ODU-only detail: the credit share after the role
+-- ("Co-PI (50%).") and a trailing "Investigators: ..." sentence. The PDF build
+-- gets brief .tex files from build_sections.py; the HTML build reads the
+-- source Markdown, so the same detail is dropped here unless the section is
+-- marked "detail: full" (the generated _full sections the ODU document uses).
+local function strip_grant_detail(inlines)
+  local out = {}
+  for _, el in ipairs(inlines) do
+    if el.t == "Str" and el.text == "Investigators:" then
+      if #out > 0 and out[#out].t == "Space" then
+        table.remove(out)
+      end
+      break
+    elseif el.t == "Str" and el.text:match("^%(%d+%%%)[%.,;]?$") then
+      local punct = el.text:match("([%.,;]?)$")
+      if #out > 0 and out[#out].t == "Space" then
+        table.remove(out)
+      end
+      if punct ~= "" then
+        if #out > 0 and out[#out].t == "Str" then
+          out[#out] = pandoc.Str(out[#out].text .. punct)
+        else
+          table.insert(out, pandoc.Str(punct))
+        end
+      end
+    else
+      table.insert(out, el)
+    end
+  end
+  return out
+end
+
+local function brief_grant_blocks(blocks)
+  local result = {}
+  for _, block in ipairs(blocks) do
+    if block.t == "BulletList" or block.t == "OrderedList" then
+      local items = {}
+      for _, item in ipairs(block.content) do
+        local new_item = {}
+        for _, b in ipairs(item) do
+          if b.t == "Para" or b.t == "Plain" then
+            b = pandoc[b.t](strip_grant_detail(b.content))
+          end
+          table.insert(new_item, b)
+        end
+        table.insert(items, new_item)
+      end
+      block = block.t == "BulletList" and pandoc.BulletList(items) or pandoc.OrderedList(items, block.listAttributes)
+    end
+    table.insert(result, block)
+  end
+  return result
 end
 
 local function html_header(meta)
@@ -314,6 +380,9 @@ local function render_html(doc)
   local groups = {}
   for _, section in ipairs(sections) do
     local content = section.blocks
+    if section.grants and not section.full then
+      content = brief_grant_blocks(content)
+    end
     if retitle[section.title] then
       local header = content[1]
       content[1] = pandoc.Header(header.level, { pandoc.Str(retitle[section.title]) }, header.attr)

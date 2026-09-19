@@ -2,7 +2,7 @@
 type: grants
 postamble: |
   \vspace{0.3em}
-  \noindent\textit{Total: \CVgranttotal{}+ in total project funding (\CVgrantshare{} attributed share) across \CVgrantsawarded{} awards}
+  \noindent\textit{Total: \CVgranttotal{}+ in total project funding across \CVgrantsawarded{} awards}
 -->
 
 ## Selected Grants
