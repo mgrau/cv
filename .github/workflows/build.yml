@@ -77,44 +77,10 @@ jobs:
           CV_SCHOLAR_DISABLE: '1'
         run: quarto render
 
-      - name: Generate index page
-        run: |
-          python3 - << 'EOF'
-          import os
-          from pathlib import Path
-
-          pdfs = sorted(Path("_build").glob("*.pdf"))
-          items = "\n".join(
-              f'      <li><a href="{p.name}">{p.stem}</a></li>'
-              for p in pdfs
-          )
-          html = f"""<!DOCTYPE html>
-          <html lang="en">
-          <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Matt Grau — CV</title>
-            <style>
-              body {{ font-family: Georgia, serif; max-width: 600px; margin: 4em auto; padding: 0 1em; color: #222; }}
-              h1 {{ font-size: 1.6em; margin-bottom: 0.2em; }}
-              p {{ color: #555; margin-top: 0; }}
-              ul {{ list-style: none; padding: 0; margin-top: 2em; }}
-              li {{ margin: 0.8em 0; }}
-              a {{ color: #057f8c; text-decoration: none; font-size: 1.1em; }}
-              a:hover {{ text-decoration: underline; }}
-            </style>
-          </head>
-          <body>
-            <h1>Matt Grau</h1>
-            <p>Old Dominion University — Physics</p>
-            <ul>
-          {items}
-            </ul>
-          </body>
-          </html>
-          """
-          Path("_build/index.html").write_text(html)
-          EOF
+      # The landing page, robots.txt and portrait live in web/. The ODU CV is
+      # built and reachable by URL but deliberately not linked from the page.
+      - name: Assemble site
+        run: make site
 
       - name: Upload PDFs to GitHub Pages
         uses: actions/upload-pages-artifact@v3
@@ -130,7 +96,12 @@ jobs:
           tag_name: latest
           name: Latest CV
           body: "Built from commit ${{ github.sha }}"
-          files: _build/*.pdf
+          files: |
+            _build/cv.pdf
+            _build/cv-3p.pdf
+            _build/cv-2p.pdf
+            _build/cv-1p.pdf
+            _build/publications.pdf
 
       - name: Upload LaTeX logs on failure
         if: failure()

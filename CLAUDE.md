@@ -66,6 +66,7 @@ categories the ODU template requires.
   so the committed cache is its only source of citation counts. Refresh with
   `CV_SCHOLAR_REFRESH=1 .venv/bin/python scripts/update_metrics.py` and commit the result.
 - `scripts/` — Build helpers (Python)
+- `web/` — Landing page for the published site (`index.html`, `robots.txt`, `photo.jpg`); `make site` copies it into `_build/`. The ODU CV is built but intentionally not linked from the page.
 
 ## Markdown Section Format
 

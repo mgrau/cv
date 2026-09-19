@@ -64,4 +64,5 @@ format:
     include-in-header:
       text: |
         <meta name="color-scheme" content="light">
+        <meta name="robots" content="noindex, nofollow, noarchive">
         <script defer src="styles/cv-web.js"></script>

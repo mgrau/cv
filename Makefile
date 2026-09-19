@@ -3,7 +3,8 @@
 #
 # Targets:
 #   generate     Build generated/ (required before a first render)
-#   all          Render all documents (both PDF and HTML)
+#   all          Render all documents (both PDF and HTML) and assemble the site
+#   site         Copy web/ (index page, robots.txt, portrait) into _build/
 #   pdf          Render all documents to PDF only
 #   html         Render all documents to HTML only
 #   cv           Render cv.qmd (both formats)
@@ -19,7 +20,7 @@
 #   3p-html / 2p-html / 1p-html
 #   clean        Remove _build/
 
-.PHONY: all generate pdf html cv odu 3p 2p 1p \
+.PHONY: all generate site pdf html cv odu 3p 2p 1p \
         cv-pdf cv-html odu-pdf odu-html \
         3p-pdf 3p-html 2p-pdf 2p-html 1p-pdf 1p-html \
         clean
@@ -36,6 +37,13 @@ generate:
 
 all: generate
 	quarto render
+	$(MAKE) site
+
+# Landing page, robots.txt and portrait for the published site.
+site:
+	mkdir -p _build
+	cp web/robots.txt web/photo.jpg _build/
+	sed "s/{{BUILD_DATE}}/$$(date -u +%Y-%m-%d)/" web/index.html > _build/index.html
 
 pdf:
 	quarto render --to pdf
