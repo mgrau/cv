@@ -24,6 +24,7 @@ numbering_groups:
 
 ### Old Dominion University - Undergraduate (Current)
 
+- Fall 2026 -- | Robert Matics. Control system automation
 - Fall 2026 -- | Cabell Jones. Instrumentation for oceanographic lidar
 - Fall 2026 -- | Ashton Trexler. Trapped-ion bosonic gates (Senior Thesis)
 - Summer 2026 -- | Jacob VanSparrentak-Herring. Developing a DDS-based frequency source
