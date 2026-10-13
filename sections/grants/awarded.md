@@ -5,7 +5,7 @@ type: grants
 ## Grants Awarded
 
 - September 2026 -- May 2027 | \$750,000 | _AI-Enabled Digital Twin for Scalable Injector Optimization and Control_ (DOE). Role: Senior Personnel (11\%). Investigators: M. Yadav (PI), T. Satogata (Co-PI, Jefferson Lab), J. Strube (Co-PI, PNNL).
-- July 2026 -- June 2028 | \$715,000 | _High Performance GaAs-based Spin-Polarized Electron Photocathodes for DOE NP Current and Future Projects_ (DOE Award DE-SC0026828). Role: Co-PI (50\%). Investigators: S. Marsillac (PI), M. Grau (Co-PI).
+- October 2026 -- September 2028 | \$715,000 | _High Performance GaAs-based Spin-Polarized Electron Photocathodes for DOE NP Current and Future Projects_ (DOE Award DE-SC0026828). Role: Co-PI (50\%). Investigators: S. Marsillac (PI), M. Grau (Co-PI).
 - May 2026 -- April 2027 | \$15,000 | intramural | _Expanding `How to Research': A Physics Undergraduate Research Pipeline_ (ODU College of Sciences Undergraduate Research Program). Role: PI. Submitted on behalf of the Department of Physics.
 - September 2024 -- December 2026 | \$529,000 | _Fabrication of Spin Polarized Electron Sources with High Polarization and QE for DOE NP_ (DOE Award DE-SC0025519). Role: Co-PI (50\%). Investigators: S. Marsillac (PI), M. Grau (Co-PI).
 - 2024 -- 2026 | user access | _Hybrid Quantum Computation Using Qubits and Qumodes on QSCOUT_ (Sandia National Laboratories). Role: PI. Investigators: M. Grau (PI), F. Ringer (Co-PI, Stony Brook).
