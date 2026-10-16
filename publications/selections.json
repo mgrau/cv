@@ -31,7 +31,7 @@
   },
   "photocathodes": {
     "method": "keys",
-    "keys": ["grau2026cryogenic", "blume2026", "masters2026", "kachwala2025", "belfore2023"]
+    "keys": ["grau2026cryogenic", "blume2026fabryperot", "masters2026", "kachwala2025", "belfore2023"]
   },
   "edm": {
     "method": "keys",
