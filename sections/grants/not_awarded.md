@@ -6,6 +6,8 @@ type: grants
 
 - May 2026 | \$730,011 | *AI-Integrated Design, Fabrication, and Optimization of Ion Trap Quantum Sensors* (DOE). Role: PI.
 - May 2026 | \$716,426 | *Reinforcement Learning to Enhance Trapped-Ion Qubit-Boson Computing for Nuclear Physics Applications* (DOE). Role: Co-PI. Investigators: C. G. Yale (PI, Sandia), S. M. Clark (Co-PI, Sandia), D. Lobser (Co-PI, Sandia), B. K. McFarland (Co-PI, Sandia), M. Grau (Co-PI), F. Ringer (Co-PI, Stony Brook), R. Rines (Co-PI, Infleqtion).
+- November 2025 | \$1,416,000 | *Quantum Simulation of QCD on Photonic and Trapped-Ion Platforms* (DOE). Role: Co-PI. Investigators: G. Siopsis (PI, University of Tennessee), M. Grau (Co-PI), F. Ringer (Co-PI, Stony Brook).
+- November 2025 | \$1,027,650 | *Quantum Science in Frozen-Spin Storage Rings: Developing an Atomic Ion Qubit Injector* (DOE). Role: PI.
 - November 2025 | \$430,337 | *State-Resolved Dynamics of Heavy Molecular Ions for Precision Measurements of Fundamental Physics* (NSF). Role: PI.
 - July 2025 | \$727,606 | *CAREER: Single Molecular Ions for Precision CP-Violation Experiments* (NSF). Role: PI.
 - July 2025 | \$120,000 | *Precision CP-Violation Searches with Individual Molecular Ions* (Research Corporation for Science Advancement). Role: PI.
