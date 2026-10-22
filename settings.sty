@@ -68,11 +68,11 @@
 \ifxetexorluatex
   \def\cv@aptosbundle{/Applications/Microsoft Excel.app/Contents/Resources/DFonts/}
   \newcommand\cv@setsansaptos{%
-    \IfFontExistsTF{Aptos}
-      {\setsansfont{Aptos}}
-      {\IfFileExists{\cv@aptosbundle Aptos.ttf}
-        {\setsansfont{Aptos}[Path=\cv@aptosbundle,Extension=.ttf,
-           UprightFont=*,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-Bold-Italic]}
+    \IfFileExists{\cv@aptosbundle Aptos.ttf}
+      {\setsansfont{Aptos}[Path=\cv@aptosbundle,Extension=.ttf,
+         UprightFont=*,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-Bold-Italic]}
+      {\IfFontExistsTF{Aptos}
+        {\setsansfont{Aptos}}
         {\PackageWarningNoLine{settings}{Aptos not found; using Carlito (Calibri-compatible)}%
          \setsansfont{Carlito}}}}
   \newcommand\cv@setmaintimes{%
