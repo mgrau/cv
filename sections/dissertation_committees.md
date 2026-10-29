@@ -19,7 +19,7 @@ subrubric_preamble: |
 - 2026 -- | Colin Kirk, PhD Electrical and Computer Engineering
 - 2025 -- | Kazuki Makino, PhD Physics
 - 2024 -- | Markus Zirnheld, PhD Physics
-- 2023 -- | Dylan English, PhD Physics
+- 2023 -- 2026 | Dylan English, PhD Physics. ``Molecular spectroscopy of atmospheres in the infrared''
 - 2023 -- | Jake Montgomery, PhD Physics (Stony Brook University)
 - 2023 -- | _Urban Kobal_, PhD Physics
 - 2022 -- | _William Jeffries_, PhD Physics
