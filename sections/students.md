@@ -14,12 +14,12 @@ numbering_groups:
 - Summer 2026 -- | Chamod Hewa
 - Summer 2025 -- | John Hill. _in collaboration with Dr. Sylvain Marsillac_ (ECE)
 - Summer 2023 -- | Urban Kobal. Graduate Summer Award Program, 2026
-- Fall 2022 -- | Greg Blume. _in collaboration with Dr. Sylvain Marsillac_
 - Fall 2022 -- | Lucas Sturnfield. _in collaboration with Dr. Sylvain Marsillac_ (D.Eng)
 - Summer 2022 -- | Will Jeffries. VSGC Graduate STEM Research Fellowship, Summer 2026 Dissertation Completion Award
 
 ### Old Dominion University - Graduate (Former)
 
+- Fall 2022 -- Fall 2026 | Greg Blume. _in collaboration with Dr. Sylvain Marsillac_
 - Fall 2023 | Michaela Bochman. _in collaboration with Dr. Sylvain Marsillac_ (ECE)
 
 ### Old Dominion University - Undergraduate (Current)

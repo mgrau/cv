@@ -23,7 +23,7 @@ subrubric_preamble: |
 - 2023 -- | Jake Montgomery, PhD Physics (Stony Brook University)
 - 2023 -- | _Urban Kobal_, PhD Physics
 - 2022 -- | _William Jeffries_, PhD Physics
-- 2022 -- | Greg Blume, PhD Physics
+- 2022 -- 2026 | Greg Blume, PhD Physics. ``Evaluation and optimization of MOCVD-grown distributed Bragg reflector photocathodes''
 - 2022 -- 2026 | Noah Swan, PhD Physics. ``A study of short range correlated pair formation mechanisms''
 
 ### Master's Thesis Committees
