@@ -42,7 +42,7 @@ numbering_groups:
 - Fall 2023 -- Fall 2025 | Kaitlyn Levine. Measuring AOM diffraction efficiency (Independent Undergraduate Research). _in collaboration with Dr. Charles Sukenik_
 - Summer 2025 | James Wile. Simulating mid-circuit measurement comagnetometry
 - Spring 2025 -- Summer 2025 | Panagiotis Taoulas. Repumping hyperfine states of Lu$^+$. Undergraduate Research and Creativity Fellowship, College of Sciences Outstanding Scholar. _Now a PhD student in Nuclear Engineering at Texas A\&M University._
-- Summer 2024 | Annika Cote. Observing Electron Spins in Diamond Using NV$^{-}$ Centers (Senior Thesis). _in collaboration with Dr. Yuan Zhang_
+- Summer 2024 | Annika Cote. Observing electron spins in diamond using NV$^{-}$ centers (Senior Thesis). _in collaboration with Dr. Yuan Zhang_
 - Summer 2024 | Jessica Blevins. Photoluminescence spectroscopy of NV centers in diamond. VSGC funded REU. _Now a Master's student in Physics at Miami University._
 - Summer 2024 | Michael Hildebrand. Computer code to generate microwave pulse sequences. VSGC funded REU
 - Fall 2023 -- Fall 2024 | Lawrence Umali. Generating 614 nm light to reset barium quits. Undergraduate Research and Creativity Fellowship
@@ -55,7 +55,7 @@ numbering_groups:
 - Summer 2022 | Alastair Deans. Calculating the rovibronic structure of I$_2$. _Now an M.S. student in Physics at Old Dominion University._
 - Summer 2022 | Wyatt Elliot. Designing and PCB connector interface between the experimental chamber and digital control system
 - Summer 2022 -- Spring 2023 | Evan Johnson. Stabilizing multiple lasers to a single high-finesse optical cavity (Senior Thesis). VSGC Undergraduate STEM Research Scholarship
-- Spring 2022 | Urban Kobal. Simulating Ion-Trapping and the Stability of the Trap (Senior Thesis)
+- Spring 2022 | Urban Kobal. Simulating ion-trapping and the stability of the trap (Senior Thesis)
 - Spring 2022 -- Summer 2022 | Tyler Rose. Design and fabrication of a lab environmental monitoring system
 - Spring 2022 | Anthony Shea. Design and fabrication of a linear Paul trap (Senior Thesis)
 
@@ -66,18 +66,18 @@ numbering_groups:
 - Spring 2021 | Maria Radisch. Calculating the magic wavelength of Ca$^+$ (Bachelor Semester Thesis)
 - Spring 2021 | Javier Naya Hernández. Localized modes in microtrap arrays (Masters Semester Thesis)
 - Spring 2021 | Lukas Mouton. Optimizing the laser cooling of Ba$^+$ (Masters Semester Thesis)
-- Autumn 2020 | Cédric Huber. Ligand Field Theory Calculation of LuOH$^+$ (Masters Semester Thesis)
-- Autumn 2020 | Noah Berner. Printed Circuit Board Design for Direct Digital Synthesis (Masters Semester Thesis)
-- Spring 2019 | Theo Dressler. Spectroscopy of high energy Rydberg states of Magnesium (Masters Semester Thesis)
+- Autumn 2020 | Cédric Huber. Ligand field theory calculation of LuOH$^+$ (Masters Semester Thesis)
+- Autumn 2020 | Noah Berner. Printed circuit board design for direct digital synthesis (Masters Semester Thesis)
+- Spring 2019 | Theo Dressler. Spectroscopy of high energy Rydberg states of magnesium (Masters Semester Thesis)
 - Summer 2018 | Christopher Böhm. Automating control of VECSEL laser system (Summer Internship)
 - Summer 2018 | Adithyan Radhakrishnan. Lifetime Studies on Magnesium Rydberg Atom (Summer Internship)
 - Spring 2018 | Theo Dressler. Temperature stabilization inside a Herzan Cabinet to secure laser-light alignment (Bachelor Semester Thesis)
 - Spring 2018 | Nathan Torelli. Characterization of UV optical fibers (Bachelor Semester Thesis)
 - Spring 2018 | Ludwig Hruza. Temperature measurement of $^{24}$Mg atoms in a MOT using time of flight measurement (Bachelor Semester Thesis)
 - Spring 2018 | Martin Woschank. Design of a compact 2D magneto-optical trap for loading ion traps (Master's Thesis)
-- Autumn 2017 | Hung Do Thi Xuan. Laser System for Optical Control of Magnesium Ions (Erasmus Master's Thesis)
+- Autumn 2017 | Hung Do Thi Xuan. Laser system for optical control of magnesium ions (Erasmus Master's Thesis)
 - Autumn 2017 | Danny Kun. Implementation of a Python DDS communication protocol to drive AOMs (Bachelor Semester Thesis)
-- Spring 2017 | Nicolo D'Anna. Programmable Analog Input Node (Masters Semester Thesis)
+- Spring 2017 | Nicolo D'Anna. Programmable analog input node (Masters Semester Thesis)
 - Summer 2016 | Hung Do Thi Xuan. Laser frequency stabilization for optical trapping of Magnesium ions (Summer Internship)
 - Summer 2016 | Akshay Sawhney. Laser cooling simulation of magnesium atoms (Summer Internship)
 
