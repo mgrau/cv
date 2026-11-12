@@ -1,7 +1,7 @@
 <!--
 type: enumerated
 numbering_groups:
-  - [PhD Committees]
+  - [Doctoral Committees]
   - [Master's Thesis Committees]
   - [Senior Thesis Committees]
 subrubric_preamble: |
@@ -10,7 +10,7 @@ subrubric_preamble: |
 
 ## Dissertation Committees
 
-### PhD Committees
+### Doctoral Committees
 
 - 2026 -- | Colin Matthews, PhD Physics
 - 2026 -- | Sulyman Hossain, PhD Physics
@@ -19,10 +19,11 @@ subrubric_preamble: |
 - 2026 -- | Colin Kirk, PhD Electrical and Computer Engineering
 - 2025 -- | Kazuki Makino, PhD Physics
 - 2024 -- | Markus Zirnheld, PhD Physics
-- 2023 -- 2026 | Dylan English, PhD Physics. ``Molecular spectroscopy of atmospheres in the infrared''
 - 2023 -- | Jake Montgomery, PhD Physics (Stony Brook University)
 - 2023 -- | _Urban Kobal_, PhD Physics
+- 2022 -- | _Lucas Sturnfield_, D.Eng
 - 2022 -- | _William Jeffries_, PhD Physics
+- 2023 -- 2026 | Dylan English, PhD Physics. ``Molecular spectroscopy of atmospheres in the infrared''
 - 2022 -- 2026 | Greg Blume, PhD Physics. ``Evaluation and optimization of MOCVD-grown distributed Bragg reflector photocathodes''
 - 2022 -- 2026 | Noah Swan, PhD Physics. ``A study of short range correlated pair formation mechanisms''
 
