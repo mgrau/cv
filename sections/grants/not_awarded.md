@@ -19,7 +19,7 @@ type: grants
 - November 2023 | \$998,651 | *Fundamental Studies Towards Multi-Ion Lutetium Optical Clocks* (DOD). Role: PI.
 - April 2023 | \$750,000 | *Searching for new sources of nuclear CP-violation with precision spectroscopy of molecular ions* (DOE FAIR). Role: PI (75\%). Investigators: M. Grau (PI), Y. Zhou (Co-PI, UNLV).
 - March 2023 | \$1,642,654 | *New Physics Searches with Molecular Ions Enabled by Parallel Measurements and Quantum Logic* (The Simons Foundation). Role: PI (44\%). Investigators: M. Grau (PI), Y. Zhou (Co-PI, UNLV).
-- March 2023 | \$15,000 | *Developing a lutetium trapped-ions qubits for quantum computing* (College of Sciences Cheng Fund). Role: PI.
+- March 2023 | \$15,000 | *Developing lutetium trapped-ion qubits for quantum computing* (College of Sciences Cheng Fund). Role: PI.
 - January 2023 | \$18,000,000 | *The Nuclear Pear Factory* (NSF Physics Frontier Center). Role: Senior Personnel (3\%). Investigators: J. T. Singh (PI, MSU), P. Guèye (Co-PI, MSU), R. F. Garcia Ruiz (Co-PI, MIT), W. D. Williams (Co-PI, Smith College).
 - June 2022 | \$800,000 | *ExpandQISE: Track 1: Developing lutetium ions as a novel trapped ion qubit* (NSF). Role: PI (70\%). Investigators: M. Grau (PI), E. Hudson (Co-PI, UCLA), W. Campbell (Co-PI, UCLA).
 - January 2022 | \$20,000 | *Creating and controlling single polyatomic molecules for precision spectroscopy* (VSGC New Investigator Program). Role: PI.
