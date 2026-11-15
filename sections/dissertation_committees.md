@@ -22,7 +22,7 @@ subrubric_preamble: |
 - 2023 -- | Jake Montgomery, PhD Physics (Stony Brook University)
 - 2023 -- | _Urban Kobal_, PhD Physics
 - 2022 -- | _Lucas Sturnfield_, D.Eng
-- 2022 -- | _William Jeffries_, PhD Physics
+- 2022 -- 2026 | _William Jeffries_, PhD Physics. ``Designing and constructing a linear Paul trap for barium experiments''
 - 2023 -- 2026 | Dylan English, PhD Physics. ``Molecular spectroscopy of atmospheres in the infrared''
 - 2022 -- 2026 | Greg Blume, PhD Physics. ``Evaluation and optimization of MOCVD-grown distributed Bragg reflector photocathodes''
 - 2022 -- 2026 | Noah Swan, PhD Physics. ``A study of short range correlated pair formation mechanisms''
