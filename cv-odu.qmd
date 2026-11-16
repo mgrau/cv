@@ -14,7 +14,7 @@ cv-sections:
     Awards and Honors: Honors, Awards, and Prizes
     Professional Memberships: Membership in Professional Societies
     Academic Service: University Service
-    Community Engagement: Community Service
+    Community Engagement: Community Outreach
   # Sections typeset as groups under the category heading that precedes them.
   demote:
     - Students
