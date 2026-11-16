@@ -19,8 +19,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # GH_TOKEN authenticates Quarto's GitHub API lookup of the latest
+      # TinyTeX release; unauthenticated calls hit the shared rate limit
+      # and fail with "403 - Forbidden".
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tinytex: true
 
