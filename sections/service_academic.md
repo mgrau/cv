@@ -6,13 +6,13 @@ type: dated
 
 ### Department
 
-- Spring 2026 | AMO Faculty Search Committee
-- Spring 2026 | Submitted College of Sciences Undergraduate Research Program proposal on behalf of the department
-- 2025 | Physics Department SWOT Committee
 - 2024 -- | Graduate Admissions Committee
 - 2022 -- | Graduate Recruitment Committee
 - 2022 -- | Graduate Preview Committee
 - 2022 -- | Undergraduate Program Committee
+- Spring 2026 | AMO Faculty Search Committee
+- Spring 2026 | Submitted College of Sciences Undergraduate Research Program proposal on behalf of the department
+- 2025 | Physics Department SWOT Committee
 - Summer 2022 | Research Assistant Professor Search Committee
 - Spring 2022 | Submitted College of Sciences Undergraduate Research Program proposal on behalf of the department
 
@@ -29,11 +29,11 @@ type: dated
 
 - Summer 2026 -- | Vertically Integrated Program for Undergraduate Research (VIPUR) Founding Faculty Group
 - Spring 2026 -- | Quantum Students Association Faculty Advisor
-- Spring 2026 | Faculty Grievance Panel Chair
-- Spring 2025 -- | General Education Steering Committee
 - Summer 2025 -- | General Education Student Learning Outcomes Working Group
 - Summer 2025 -- | General Education First Year Seminar Working Group
-- Fall 2024 | General Education Reform Reading Group
+- Spring 2025 -- | General Education Steering Committee
 - 2023 -- | Radiation Safety Committee
+- Spring 2026 | Faculty Grievance Panel Chair
 - Spring 2025 | Radiation Safety Officer Search Committee
+- Fall 2024 | General Education Reform Reading Group
 - Spring 2022 | Lead Marshall, Advanced Degree Commencement Ceremony, Strome College of Business
