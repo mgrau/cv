@@ -7,14 +7,14 @@ type: dated
 ### Department
 
 - Spring 2026 | AMO Faculty Search Committee
-- Spring 2026 | Submitted College of Sciences Undergraduate Research Program on behalf of the department
+- Spring 2026 | Submitted College of Sciences Undergraduate Research Program proposal on behalf of the department
 - 2025 | Physics Department SWOT Committee
 - 2024 -- | Graduate Admissions Committee
 - 2022 -- | Graduate Recruitment Committee
 - 2022 -- | Graduate Preview Committee
 - 2022 -- | Undergraduate Program Committee
 - Summer 2022 | Research Assistant Professor Search Committee
-- Spring 2022 | Submitted College of Sciences Undergraduate Research Program on behalf of the department
+- Spring 2022 | Submitted College of Sciences Undergraduate Research Program proposal on behalf of the department
 
 ### College
 

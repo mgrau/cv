@@ -7,7 +7,7 @@ type: dated
 ### Conference and Program Service
 
 - June 2026 | Session Chair: Molecules at the Frontiers of Quantum Science, DAMOP 2026, Providence, Rhode Island
-- 2025 | IEEE Quantum Computing and Engineering QTEM Program Committee (QEC25)
+- 2025 | IEEE Quantum Computing and Engineering QTEM Program Committee (QCE25)
 - April 2025 | ODU GSGA Conference Judge
 - June 2023 | Session Chair: Dipolar BECs, DAMOP 2023, Spokane, Washington
 

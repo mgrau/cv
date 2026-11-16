@@ -13,14 +13,14 @@ type: dated
 - Spring 2024 | PHYS 456: Intermediate Quantum Mechanics
 - Fall 2023 | PHYS 137T: Introduction to Quantum Science and Technology
 - Spring 2023 | PHYS 297: Introduction to Undergraduate Research
-  (co-Instructors: Charles Hyde, Yuan Zhang)
+  (co-instructors: Charles Hyde, Yuan Zhang)
 - Spring 2023 | PHYS 456: Intermediate Quantum Mechanics
 - Fall 2022 | PHYS 411: Introduction to Atomic Physics
-- Fall 2022 | PHYS 297: Introduction to Undergraduate Research (co-Instructor: Charles Hyde)
+- Fall 2022 | PHYS 297: Introduction to Undergraduate Research (co-instructor: Charles Hyde)
 - Spring 2022 | PHYS 456: Intermediate Quantum Mechanics
 
 ### ETH Zürich
 
 - Spring 2021 | Physics III: Introduction to optical, statistical, and quantum physics
   (Head Teaching Assistant)
-- Spring 2020 | Cavity QED and Ion Trap Physics: co-Instructor: Daniel Kienzler
+- Spring 2020 | Cavity QED and Ion Trap Physics (co-instructor: Daniel Kienzler)

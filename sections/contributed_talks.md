@@ -5,7 +5,7 @@ date_position: end
 
 ## Contributed Conference Talks and Posters
 
-- June 2026 | Measurement of the Ba$^+$ D$_{5/2}$ state lifetime in cryogenic ion trap. Contributed talk, DAMOP 2026, Providence, Rhode Island
+- June 2026 | Measurement of the Ba$^+$ D$_{5/2}$ state lifetime in a cryogenic ion trap. Contributed talk, DAMOP 2026, Providence, Rhode Island
 - June 2023 | Spin-transparent storage rings as a quantum computing architecture. Poster, DAMOP 2023, Spokane, Washington
 - November 2022 | Testing fundamental symmetries with lutetium based molecular ions. Facility for Rare Isotope Beams, East Lansing, Michigan
 - June 2020 | Progress towards optically trapping 2D ion crystals. Contributed talk, DAMOP 2020, virtual

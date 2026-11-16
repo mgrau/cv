@@ -13,6 +13,6 @@ date_position: end
 - March 2021 | Searching for new physics with trapped molecular ions. Van Swinderen Institute, Groningen, Netherlands
 - March 2021 | Searching for new physics with trapped molecular ions. Old Dominion University, Norfolk, Virginia, USA
 - April 2020 | Precision tests of fundamental symmetry violation using trapped molecular ions. Durham University, Durham, United Kingdom
-- November 2019 | Precision tests of fundamental symmetry violation using trapped molecular ions. Heinrich Heine University Düsseldorf, Dusseldorf, Germany
+- November 2019 | Precision tests of fundamental symmetry violation using trapped molecular ions. Heinrich Heine University Düsseldorf, Düsseldorf, Germany
 - March 2019 | Trapping Ions in an optical lattice. JILA, Boulder, CO
 - March 2019 | Trapping Ions in an optical lattice. Caltech, Pasadena, CA
