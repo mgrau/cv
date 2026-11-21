@@ -4,6 +4,7 @@ type: dated
 
 ## Community Engagement
 
+- November 2026 | _How do we measure time?_, Outreach activity for 80 students from SmithTech, the School of Computer Science, Innovation, \& Design, Chesapeake, VA
 - July 2026 | _Computing with Atoms Inside a Quantum Computer_, BLAST Keynote Address
 - July 2026 | _Lasers, Refraction, and Optics_, BLAST Session for 80 rising 9th and 10th grade students
 - March 2026 | _Searching for Symmetry Violations with Molecular Ions_, ODU Quantum Students Association Talk
